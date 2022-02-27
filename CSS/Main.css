@@ -1,0 +1,30 @@
+body {
+    font-family: Arial, Verdana, sans-serif;
+    background-color: #FFFFFF;
+    padding: auto;
+    margin: auto;
+}
+
+header div {
+    width: 30%;
+    margin-left: 10%;
+    background-color: aqua;
+}
+
+div h1{
+    font-family: "Agency FB", sans-serif;
+    font-size: 40px;
+    color: #962715;
+    padding-top: 10%;
+}
+
+#logo{
+    height: 30px;
+    background-color: blue;
+    float: left;
+}
+
+header {
+    background-color: #BBC3C6;
+}
+
