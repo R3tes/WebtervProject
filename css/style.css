@@ -10,7 +10,7 @@ body {
 body main {
     background-color: #FFFFFF;
     width: 80%;
-    margin: 100px auto;
+    margin: 30px auto;
 }
 
 /* TEXT WITHIN BODY */
@@ -49,6 +49,7 @@ header {
     top: 0;
     background: linear-gradient(120deg, #BBC3C6, #767676);
     height: 90px;
+    position: fixed;
 }
 
 header div img {
@@ -58,7 +59,7 @@ header div img {
 }
 
 header div h1 {
-    font-size: 25px;
+    font-size: 30px;
     display: inline-block;
     color: #E23127;
     letter-spacing: 3px;
@@ -67,7 +68,7 @@ header div h1 {
 
 header div {
     position: relative;
-    left: 10%;
+    left: 38%;
     top: 15px;
     width: 100%;
 }
@@ -75,36 +76,55 @@ header div {
 /* MENU */
 
 nav {
-    background-color: rgb(30, 30, 40);
+    background: #1E1E20;
     overflow: hidden;
-    position: sticky;
+    position: fixed;
     top: 0;
+    width: 100%;
+    margin-top: 80px;
 }
 
 .active {
-    background-color: darkcyan;
+    background-color: #ab3d26;
 }
 
 nav ul {
     list-style-type: none;
-    margin: 0;
     padding: 0;
+    margin: 0;
 }
 
 nav li {
     float: left;
-    width: 33.33%;
+    width: 14.28%;
     text-align: center;
 }
 
 nav li:hover:not(.active) {
-    background-color: black;
+    background-color: #E23127;
 }
 
 nav a {
     color: white;
-    text-transform: uppercase;
+    font-variant: small-caps;
     display: block;
-    padding: 15px;
+    padding: 10px;
     text-decoration: none;
 }
+
+/* FOOTER */
+footer {
+    width: 100%;
+    height: 90px;
+    background: linear-gradient(120deg, #BBC3C6, #767676);
+    bottom: 0;
+}
+
+footer p {
+    font-size: 20px;
+    font-weight: bold;
+    padding-top: 35px;
+    color: white;
+    margin: 0 auto;
+}
+
