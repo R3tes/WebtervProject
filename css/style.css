@@ -1,43 +1,92 @@
+/* BODY */
+
 body {
     font-family: Arial, Verdana, sans-serif;
     background-color: #FFFFFF;
     margin: 0;
     padding: 0;
-    position: relative;
 }
+
+body main {
+    background-color: #FFFFFF;
+    width: 80%;
+    margin: 100px auto;
+}
+
+/* TEXT WITHIN BODY */
+
+section > p {
+    padding: 0 20px;
+}
+
+.kiemeltParagrafus {
+    background-color: #BBC3C6;
+    padding: 20px;
+    border-left: 5px #767676;
+    font-weight: bold;
+}
+
+main h2 {
+    text-transform: uppercase;
+    font-size: 18px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.kozepre {
+    text-align: center;
+}
+
+.kiemeltSzoveg {
+    color: #962715;
+    font-weight: bold;
+}
+
+/* FEJLEC */
 
 header {
     width: 100%;
     top: 0;
-    background-color: #BBC3C6;
     background: linear-gradient(120deg, #BBC3C6, #767676);
     position: fixed;
+    height: 90px;
 }
 
 header div img {
     height: 60px;
     float: left;
     margin-right: 8px;
-    margin-bottom: 15px;
 }
 
 header div h1 {
     font-size: 25px;
     display: inline-block;
-    color: #962715;
+    color: #E23127;
+    letter-spacing: 3px;
+    text-shadow: 2px 2px #525457;
 }
 
 header div {
-    margin-left: 15%;
+    position: relative;
+    left: 10%;
+    top: 15px;
 }
 
-nav ul{
-    background-color: aqua;
-    width: 50%;
-    margin: auto;
-    min-height: 30px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+/* MENU */
+
+.navbar{
     list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: blue;
+}
+
+header nav li{
+    float: right;
+
+    display: block;
+    text-align: left;
+    padding: 16px;
+    text-decoration: none;
 }
