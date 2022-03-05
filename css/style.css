@@ -8,15 +8,15 @@ body {
 }
 
 body main {
-    background-color: #FFFFFF;
+    background-color: rgba(252, 76, 0, 0.07);
     width: 80%;
-    margin: 30px auto;
+    margin: 150px auto;
 }
 
 /* TEXT WITHIN BODY */
 
 section > p {
-    padding: 0 20px;
+    padding: 20px 20px;
 }
 
 .kiemeltParagrafus {
@@ -28,6 +28,7 @@ section > p {
 
 main h2 {
     text-transform: uppercase;
+    padding: 0 20px;
     font-size: 18px;
     margin-top: 20px;
     margin-bottom: 10px;
@@ -82,6 +83,7 @@ nav {
     top: 0;
     width: 100%;
     margin-top: 80px;
+
 }
 
 .active {
@@ -98,6 +100,7 @@ nav li {
     float: left;
     width: 14.28%;
     text-align: center;
+
 }
 
 nav li:hover:not(.active) {
@@ -105,11 +108,12 @@ nav li:hover:not(.active) {
 }
 
 nav a {
+    font-size: 14.4px;
     color: white;
     font-variant: small-caps;
     display: block;
-    padding: 10px;
     text-decoration: none;
+    padding: 10px;
 }
 
 /* FOOTER */
