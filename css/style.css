@@ -89,7 +89,7 @@ nav {
     z-index: 2;
 }
 
-.hamburger:before, .hamburger:after {
+.hamburger::before, .hamburger::after {
     content: "";
     position: absolute;
     height: 4px;
@@ -98,12 +98,12 @@ nav {
     border-radius: 10px;
 }
 
-.hamburger:before {
+.hamburger::before {
     top: -10px;
     width: 20px;
 }
 
-.hamburger:after {
+.hamburger::after {
     top: 10px;
     width: 25px;
 }
@@ -206,9 +206,9 @@ body main {
 
 main h2 {
     text-transform: uppercase;
-    font-size: 18px;
+    font-size: 22px;
     margin-top: 20px;
-    margin-bottom: 10px;
+    margin-bottom: 30px;
 }
 
 .kozepre {
@@ -218,11 +218,16 @@ main h2 {
 .kiemeltSzoveg {
     color: #962715;
     font-weight: bold;
+    font-size: 18px;
 }
 
 section {
     margin: 50px 50px;
     padding-top: 15px;
+}
+
+.egyszerulist {
+    /* TODO */
 }
 
 /* == FOOTER == */
@@ -374,3 +379,52 @@ footer p {
     font-size: 22px;
     font-style: italic;
 }
+
+/* == NYEREMENYJATEK == */
+
+.withoutlargemrgns {
+    margin-top: 0;
+}
+
+.nyjatekpagebreak {
+    margin-top: 50px;
+}
+
+@keyframes slideshow {
+    0% { background-image: url('../img/nyj_anim_1.png'); }
+    25% { background-image: url('../img/nyj_anim_2.png'); }
+    50% { background-image: url('../img/nyj_anim_3.png'); }
+    75% { background-image: url('../img/nyj_anim_4.png'); }
+    100% { background-image: url('../img/nyj_anim_5.png'); }
+}
+
+.slideshowelement {
+    right: 0;
+    float: right;
+    margin-right: 20px;
+    width: 200px;
+    height: 200px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    animation-name: slideshow;
+    animation-duration: 15s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+
+
+/* == UTOFORMAZAS == */
+@media only screen and (max-width: 1450px) {
+    body p {
+        margin: 5px 5px;
+        padding-bottom: 10px;
+        font-size: 14px;
+    }
+    #hiridezet q {
+        font-size: 16px;
+        font-style: italic;
+    }
+}
+
