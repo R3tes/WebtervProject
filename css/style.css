@@ -226,8 +226,14 @@ section {
     padding-top: 15px;
 }
 
-.egyszerulist {
-    /* TODO */
+.egyszerulist li {
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+
+.invisiblepagebreak {
+    margin-top: 50px;
+    visibility: hidden;
 }
 
 /* == FOOTER == */
@@ -256,8 +262,8 @@ footer p {
     color: #000;
 }
 
-#ontop {
-    z-index: 2;
+.ontop {
+    z-index: 20;
 }
 
 #withoutbg {
@@ -386,10 +392,6 @@ footer p {
     margin-top: 0;
 }
 
-.nyjatekpagebreak {
-    margin-top: 50px;
-}
-
 @keyframes slideshow {
     0% { background-image: url('../img/nyj_anim_1.png'); }
     25% { background-image: url('../img/nyj_anim_2.png'); }
@@ -413,7 +415,41 @@ footer p {
     animation-direction: alternate;
 }
 
+.rightimage {
+    left: 0;
+    float: left;
+    margin: 5px 40px 50px 0;
+    width: 215px;
+}
 
+.tableandimage {
+    display: flex;
+    justify-content: center;
+}
+
+table {
+    margin-top: 50px;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 15px;
+    border: 2px solid #767676;
+    text-align: center;
+    background-color: rgba(187, 195, 198, 0.4);
+}
+
+th:hover, td:hover {
+    background-color: #e83a1e;
+}
+
+
+#tableimage {
+    width: 300px;
+    height: 1200px;
+    margin-left: 150px;
+    margin-top: 90px;
+}
 
 /* == UTOFORMAZAS == */
 @media only screen and (max-width: 1450px) {
@@ -425,6 +461,19 @@ footer p {
     #hiridezet q {
         font-size: 16px;
         font-style: italic;
+    }
+    .egyszerulist li {
+        font-size: 14px;
+        margin-bottom: 5px;
+    }
+    th, td {
+        padding: 5px;
+        border: 1px solid #767676;
+        text-align: center;
+        background-color: rgba(187, 195, 198, 0.4);
+    }
+    #tableimage {
+        display: none;
     }
 }
 
