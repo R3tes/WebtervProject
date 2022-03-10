@@ -427,6 +427,11 @@ table {
     border-collapse: collapse;
 }
 
+table caption {
+    caption-side: bottom;
+    margin-top: 10px;
+}
+
 th, td {
     padding: 15px;
     border: 2px solid #767676;
@@ -444,6 +449,53 @@ th:hover, td:hover {
     height: 1200px;
     margin-left: 150px;
     margin-top: 90px;
+}
+
+/* == KONTAKT == */
+
+.kontaktterkep{
+    display: flex;
+    margin: 0 auto;
+    border: 0;
+    width: 70%;
+}
+
+.kontaktinfo {
+    margin-top: 50px;
+}
+
+.kontaktinfo p {
+    margin: 5px 0;
+    text-align: center;
+}
+
+.kapcsolatform {
+    margin: 0 auto;
+    width: 60%;
+    background-color: rgba(255, 255, 255, 0.4);
+    padding: 10px 15px;
+}
+
+.kapcsolatform input[type=text], .kapcsolatform input[type=email], .kapcsolatform textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    margin-top: 6px;
+    margin-bottom: 16px;
+    resize: vertical;
+}
+
+.kapcsolatform input[type=submit] {
+    background-color: #962715;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    cursor: pointer;
+}
+
+
+.kapcsolatform input[type=submit]:hover {
+    background-color: #e83a1e;
 }
 
 /* == UTOFORMAZAS == */

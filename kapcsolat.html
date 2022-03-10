@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <title>Gameter</title>
+    <meta charset="UTF-8"/>
+    <link rel="stylesheet" href="css/style.css"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="img/flameicon_with_letters.png"/>
+</head>
+<body>
+<!-- FEJLÉC/MENÜ -->
+
+<header class="header ontop">
+
+    <div class="logo">
+        <a href="index.html">
+            <img src="img/long_logo.png" alt="gameter logo">
+        </a>
+    </div>
+
+    <div class="logo_without_img">
+        <a href="index.html">
+            <img src="img/long_logo_without_img.png" alt="gameter">
+        </a>
+    </div>
+
+    <nav>
+
+        <input type="checkbox" class="toggle-menu">
+        <div class="hamburger"></div>
+
+        <ul class="menu">
+            <li><a href="index.html">Főoldal</a></li>
+            <li><a href="hirek.html">Hírek</a></li>
+            <li><a href="#">Termékeink</a></li>
+            <li><a href="#">E-sport</a></li>
+            <li><a href="nyeremenyjatek.html">Nyereményjáték</a></li>
+            <li class="active"><a href="kapcsolat.html">Kapcsolat</a></li>
+            <li><a href="#">Játék Kritikák</a></li>
+            <li><a href="#">Bejelentkezés</a></li>
+        </ul>
+    </nav>
+
+</header>
+
+<!-- FŐ TARTALOM -->
+<main>
+    <section>
+        <h2>Ha kérdése van, esetleg valamilyen problémát észlelt, lépjen kapcsolatba velünk!</h2>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2759.131819859142!2d20.144824815755417!3d46.24760718884785!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4744886ffd180d6f%3A0x30f85d1d5e79483d!2sSzeged%2C%20Aradi%20v%C3%A9rtan%C3%BAk%20tere%2C%206720!5e0!3m2!1sen!2shu!4v1646916792093!5m2!1sen!2shu" class="kontaktterkep"></iframe>
+        <div class="kontaktinfo">
+            <p>Gameter NVC.</p>
+            <p>Nemlétező tér 66, Szeged, 6720</p>
+            <p>Telefonszám: 767(5544)296-29-11</p>
+            <p>(Hétfőtől-péntekig: 08:00-tól 18:00-ig, Szombaton: 08:00-15-00-ig)</p>
+            <p>E-mail cím: <span class="kiemeltSzoveg">customer@gameter.hu</span></p>
+        </div>
+        <hr class="invisiblepagebreak">
+        <h2>Amennyiben hibát észlel, forduljon ügyfélszolgálatunkhoz:</h2>
+        <div class="kapcsolatform">
+            <form action="#">
+                <label for="name">Név</label>
+                <input type="text" id="name" name="teljesnev" placeholder="A neve...">
+                <label for="e-mail">E-mail cím</label>
+                <input type="email" id="e-mail" name="emailcim" placeholder="pelda@valami.com">
+                <label for="uzenet">Üzenet</label>
+                <textarea id="uzenet" name="uzenete" placeholder="Üzenete..." style="height:170px"></textarea>
+                <input type="submit" value="Elküldés">
+            </form>
+        </div>
+        <hr class="invisiblepagebreak">
+    </section>
+</main>
+
+<!-- LÁBLÉC -->
+
+<footer>
+    <p class="kozepre">&copy; Gameter</p>
+</footer>
+</body>
+</html>
