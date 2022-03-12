@@ -145,16 +145,19 @@ nav input:checked ~ .menu {
     box-shadow: -20px 0 40px rgba(0, 0, 0, 0.3);
 }
 
-@media screen and (max-width: 1450px) {
+@media only screen and (max-width: 1450px) {
     .hamburger, .toggle-menu, .logo_without_img {
         display: block;
     }
+
     .logo {
         display: none;
     }
+
     .header {
         padding: 10px 20px;
     }
+
     .menu {
         justify-content: start;
         flex-direction: column;
@@ -167,9 +170,11 @@ nav input:checked ~ .menu {
         height: 100%;
         padding-top: 65px;
     }
+
     .menu li {
         width: 100%;
     }
+
     .menu li a, .menu li a:hover {
         padding: 30px;
         font-size: 24px;
@@ -196,7 +201,7 @@ body p {
 }
 
 body main {
-    background: linear-gradient(rgba(252, 76, 0, 0.07), rgba(252, 76, 0, 0.07)),  linear-gradient(#ffffff, #ffffff);
+    background: linear-gradient(rgba(252, 76, 0, 0.07), rgba(252, 76, 0, 0.07)), linear-gradient(#ffffff, #ffffff);
     /*background-color: rgba(252, 76, 0, 0.07);*/
     width: 80%;
     margin: 115px auto 35px auto;
@@ -258,6 +263,54 @@ footer p {
     margin: 0 auto;
 }
 
+/* == FOOLDAL == */
+
+.fooldalkepesszoveg {
+    display: flex;
+}
+
+#fooldalhirkep {
+    width: 25%;
+    border-radius: 12px;
+}
+
+#fooldalnyeremenyjatekkep {
+    width: 20%;
+    border-radius: 12px;
+}
+
+#nyjreszvetel {
+    display: block;
+    margin-top: 30px;
+    text-decoration: none;
+    font-size: 22px;
+    text-transform: uppercase;
+    color: #962715;
+    font-weight: bold;
+}
+
+#nyjreszvetel:hover {
+    color: #e83a1e;
+    text-decoration: underline;
+}
+
+#fooldalhircim {
+    margin-left: 20px;
+}
+
+#fooldalhircim a {
+    text-decoration: none;
+    font-size: 22px;
+    margin: 24px 0 32px;
+    text-transform: uppercase;
+    color: #962715;
+}
+
+#fooldalhircim a:hover {
+    color: #e83a1e;
+    text-decoration: underline;
+}
+
 /* == HIREK == */
 
 .hirheader {
@@ -301,7 +354,7 @@ footer p {
 
 .articledatum {
     display: block;
-    color: rgba(0,0,0,.5);
+    color: rgba(0, 0, 0, .5);
     font-size: 16px;
     font-weight: 600;
     margin: 8px 0;
@@ -317,7 +370,7 @@ footer p {
 .articleszoveg {
     margin-bottom: 40px;
     font-size: 18px;
-    color: rgba(0,0,0,.7);
+    color: rgba(0, 0, 0, .7);
 }
 
 .reszletesebben {
@@ -389,11 +442,21 @@ footer p {
 }
 
 @keyframes slideshow {
-    0% { background-image: url('../img/nyj_anim_1.png'); }
-    25% { background-image: url('../img/nyj_anim_2.png'); }
-    50% { background-image: url('../img/nyj_anim_3.png'); }
-    75% { background-image: url('../img/nyj_anim_4.png'); }
-    100% { background-image: url('../img/nyj_anim_5.png'); }
+    0% {
+        background-image: url('../img/nyj_anim_1.png');
+    }
+    25% {
+        background-image: url('../img/nyj_anim_2.png');
+    }
+    50% {
+        background-image: url('../img/nyj_anim_3.png');
+    }
+    75% {
+        background-image: url('../img/nyj_anim_4.png');
+    }
+    100% {
+        background-image: url('../img/nyj_anim_5.png');
+    }
 }
 
 .slideshowelement {
@@ -455,7 +518,7 @@ th:hover, td:hover {
 
 /* == KONTAKT == */
 
-.kontaktterkep{
+.kontaktterkep {
     display: flex;
     margin: 0 auto;
     border: 0;
@@ -500,35 +563,169 @@ th:hover, td:hover {
     background-color: #e83a1e;
 }
 
+/* == BEJELENTKEZES ES REGISZTRACIO == */
+
+.felhasznaloform {
+    padding: 30px;
+    border: 3px dashed black;
+    margin: 20px auto;
+    box-sizing: border-box;
+    width: 600px;
+}
+
+form > input, form > select, form > textarea, form > fieldset, fieldset > input {
+    display: block;
+    margin: 10px auto;
+    padding: 10px;
+    width: 100%;
+}
+
+fieldset legend {
+    padding: 0 10px;
+}
+
+.felhasznaloformCheckbox {
+    display: block;
+    margin: 0 auto;
+}
+
+#loginavatar {
+    width: 130px;
+    height: 130px;
+    display: block;
+    margin: 0 auto 40px auto;
+}
+
+#registerNow {
+    font-size: 24px;
+}
+
+#registerNow a {
+    text-decoration: none;
+    font-size: 24px;
+}
+
+#registerNow a:hover {
+    color: #e83a1e;
+    text-decoration: underline;
+}
+
+.felhasznaloform input[type=submit], .felhasznaloform input[type=reset] {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    background-color: #962715;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    cursor: pointer;
+}
+
+.felhasznaloform input[type=submit] {
+    background-color: #c9a311;
+}
+
+.felhasznaloform input[type=reset]:hover {
+    background-color: #e83a1e;
+}
+
+.felhasznaloform input[type=submit]:hover {
+    background-color: #fac707;
+}
+
+.requiredmezo::after {
+    content: " *";
+    color: red;
+}
+
+form > div {
+    margin: 20px auto;
+    width: 100%;
+}
+
+form > div > label {
+    margin: 0 20px;
+}
+
+#avatar {
+    display: inline;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
 /* == UTOFORMAZAS == */
-@media only screen and (max-width: 1450px) {
+@media only screen and (max-width: 950px) {
     body p {
         margin: 5px 5px;
         padding-bottom: 10px;
         font-size: 14px;
     }
+
     #hiridezet q {
         font-size: 16px;
         font-style: italic;
     }
+
     .egyszerulist li {
         font-size: 14px;
         margin-bottom: 5px;
     }
+
     th, td {
         padding: 5px;
         border: 1px solid #767676;
         text-align: center;
         background-color: rgba(187, 195, 198, 0.4);
     }
+
     #tableimage {
         display: none;
     }
+
     .articlepost {
         all: initial;
     }
+
     .articlepost-img {
         display: none;
     }
-}
 
+    .felhasznaloform {
+        width: 85%;
+    }
+
+    #loginavatar {
+        display: none;
+    }
+
+    form > input, form > select, form > textarea, form > fieldset, fieldset > input {
+        display: block;
+        margin: 5px auto;
+        padding: 2px;
+        width: 85%;
+    }
+
+    form > label {
+        font-size: 12px;
+    }
+
+    #bejelentkezesFooter {
+        position: absolute;
+        bottom: 0;
+    }
+
+    .felhasznaloform input[type=submit], .felhasznaloform input[type=reset] {
+        font-size: 12px;
+    }
+
+    #registerNow {
+        font-size: 16px;
+    }
+
+    #registerNow a {
+        font-size: 16px;
+    }
+
+    form > div > label {
+        margin: 0 3px;
+    }
+}
