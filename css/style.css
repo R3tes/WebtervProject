@@ -185,7 +185,8 @@ nav input:checked ~ .menu {
 /* == BODY == */
 
 body {
-    background-color: #FFFFFF;
+    background: url('../img/smallBgPicture.png');
+    background-repeat: space;
 }
 
 body p {
@@ -195,7 +196,8 @@ body p {
 }
 
 body main {
-    background-color: rgba(252, 76, 0, 0.07);
+    background: linear-gradient(rgba(252, 76, 0, 0.07), rgba(252, 76, 0, 0.07)),  linear-gradient(#ffffff, #ffffff);
+    /*background-color: rgba(252, 76, 0, 0.07);*/
     width: 80%;
     margin: 115px auto 35px auto;
 }
