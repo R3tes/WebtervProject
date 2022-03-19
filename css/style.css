@@ -268,9 +268,10 @@ footer p {
     display: flex;
 }
 
-#fooldalhirkep {
+.fooldalhirkep {
     width: 25%;
     border-radius: 12px;
+    margin-right: 30px;
 }
 
 #fooldalnyeremenyjatekkep {
@@ -293,11 +294,11 @@ footer p {
     text-decoration: underline;
 }
 
-#fooldalhircim {
+.fooldalhircim {
     margin-left: 20px;
 }
 
-#fooldalhircim a {
+.fooldalhircim a {
     text-decoration: none;
     font-size: 22px;
     margin: 24px 0 32px;
@@ -305,7 +306,7 @@ footer p {
     color: #962715;
 }
 
-#fooldalhircim a:hover {
+.fooldalhircim a:hover {
     color: #e83a1e;
     text-decoration: underline;
 }
@@ -434,6 +435,35 @@ footer p {
     font-style: italic;
 }
 
+.anim-zoomin {
+    animation: zoomin 0.5s;
+}
+
+@keyframes zoomin {
+    from {
+        transform: scale(0)
+    }
+    to {
+        transform: scale(1)
+    }
+}
+
+.anim-blinking {
+    animation: blinking 5s infinite;
+}
+
+@keyframes blinking {
+    0% {
+        opacity: 0.7
+    }
+    50% {
+        opacity: 1
+    }
+    100% {
+        opacity: 0.7
+    }
+}
+
 /* == NYEREMENYJATEK == */
 
 .withoutlargemrgns {
@@ -549,7 +579,7 @@ th:hover, td:hover {
 
 /* == BAJNOKSAG == */
 
-.bajnoksag-img{
+.bajnoksag-img {
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -558,11 +588,11 @@ th:hover, td:hover {
     border-radius: 10px;
 }
 
-.bajnoksagszoveg{
+.bajnoksagszoveg {
     margin-top: 50px;
 }
 
-.bajnoksagform{
+.bajnoksagform {
     margin: 0 auto;
     width: 50%;
     background-color: rgba(255, 255, 255, 0.4);
@@ -593,7 +623,7 @@ th:hover, td:hover {
 
 /* == ESPORT VIDEOK == */
 
-.eSportvid{
+.eSportvid {
     display: block;
     width: 500px;
     height: 300px;
@@ -602,7 +632,7 @@ th:hover, td:hover {
     border-radius: 10px;
 }
 
-.eSportvidInfo{
+.eSportvidInfo {
     font-size: 22px;
     font-weight: bold;
     margin: 24px 0 20px;
@@ -610,7 +640,7 @@ th:hover, td:hover {
     color: #962715;
 }
 
-.eSportvidSzoveg{
+.eSportvidSzoveg {
     font-size: 18px;
     color: rgba(0, 0, 0, .7);
     font-style: italic;
@@ -618,7 +648,7 @@ th:hover, td:hover {
 
 /* == KRITIKAK == */
 
-.criticsCim{
+.criticsCim {
     font-weight: bold;
     color: #962715;
     font-size: 22px;
@@ -626,7 +656,7 @@ th:hover, td:hover {
     font-variant: small-caps;
 }
 
-.elsoBetu::first-letter{
+.elsoBetu::first-letter {
     font-size: 200%;
     color: #be2004;
 }
@@ -636,7 +666,7 @@ th:hover, td:hover {
     position: relative;
 }
 
-.critics-img img{
+.critics-img img {
     width: 400px;
     object-fit: cover;
     display: block;
@@ -672,7 +702,7 @@ th:hover, td:hover {
     text-shadow: 1px 1px black;
 }
 
-.criticsalcim{
+.criticsalcim {
     font-size: 30px;
     font-variant: small-caps;
     color: #887f7f;
@@ -685,7 +715,7 @@ th:hover, td:hover {
     text-shadow: 1px 1px black;
 }
 
-.criticsVideo{
+.criticsVideo {
     width: 500px;
     height: 300px;
     margin: auto auto auto 20px;
@@ -693,9 +723,17 @@ th:hover, td:hover {
     border-radius: 10px;
 }
 
+#listaMozgat {
+    list-style-type: circle;
+    display: block;
+    left: 5%;
+    position: relative;
+}
+
+
 /* == TERMEKEK == */
 
-.storelink{
+.storelink {
     margin-right: auto;
     margin-left: auto;
     width: 25%;
@@ -708,19 +746,19 @@ th:hover, td:hover {
     text-decoration: none;
 }
 
-.storeImage{
+.storeImage {
     display: block;
     margin-right: auto;
     margin-left: auto;
     margin-bottom: 20px;
 }
 
-.kepekegymasMellett{
+.kepekegymasMellett {
     display: flex;
     justify-content: center;
 }
 
-.storelink:hover{
+.storelink:hover {
     outline: 5px solid rgba(178, 158, 158, 0.5);
 }
 
@@ -897,10 +935,11 @@ form > div > label {
         display: none;
     }
 
-    .eSportArticlepost{
+    .eSportArticlepost {
         all: initial;
     }
-    .eSportArticlepost-img{
+
+    .eSportArticlepost-img {
         display: none;
     }
 
@@ -943,11 +982,117 @@ form > div > label {
     form > div > label {
         margin: 0 3px;
     }
+
+    #fooldalhirkep {
+        display: none;
+    }
+
+    #fooldalnyeremenyjatekkep {
+        display: none;
+    }
+
+    .kepekegymasMellett {
+        flex-direction: column;
+    }
+
+    .storelink {
+        width: 100%;
+        margin-bottom: 50px;
+    }
+
+    .storeImage {
+        width: 80%;
+    }
+
+    .criticsVideo {
+        width: 200px;
+    }
+
+    .critictspost {
+        width: 100%;
+        background: linear-gradient(180deg, #BBC3C6, #767676);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        z-index: 1;
+    }
+
+    .critics-img {
+        transform: translateX(0px);
+    }
+
+    .critics-img img {
+        width: 175px;
+        display: inline;
+        margin-right: 0;
+        border-radius: 10px;
+    }
+
+    .criticsfocim {
+        font-size: 28px;
+    }
 }
 
-/* == UTOFORMAZAS == */
+/* == NYOMTATAS == */
+
+/* == A megvalositott oldal, amelyen a print (szerintunk) meg lett valositva: gamecritics_1.html - vagy akarmelyik kritika cikk bovebb verzioja == */
 
 @media print {
-    video, nav, .slideshow-container, #scroll-to-top, footer { display: none; }
-    hr { page-break-after: always; }
+    video, nav, .slideshow-container, #scroll-to-top, footer, header {
+        display: none;
+    }
+
+    hr {
+        page-break-after: always;
+    }
+
+    .logo a img {
+        display: none;
+    }
+
+    .logo_without_img a {
+        display: none;
+    }
+
+    .insidearticledisclaimer {
+        display: none;
+    }
+
+    #backtohirek {
+        display: none;
+    }
+
+    iframe {
+        display: none;
+    }
+
+    #printable {
+        width: 100%;
+        left: 0;
+        margin: 0 0;
+    }
+
+    main {
+        width: 100%;
+        margin: 10px auto 10px auto;
+    }
+
+    .criticsfocim {
+        font-size: 35px;
+    }
+
+    .criticsalcim {
+        font-size: 20px;
+    }
+
+    .criticsKiemeltSzoveg {
+        font-size: 16px;
+        text-shadow: 1px 1px black;
+    }
+    section {
+        margin: 0 0;
+    }
+    p {
+        margin-left: 0;
+    }
 }
