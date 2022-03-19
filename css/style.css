@@ -190,8 +190,7 @@ nav input:checked ~ .menu {
 /* == BODY == */
 
 body {
-    background: url('../img/smallBgPicture.png');
-    background-repeat: space;
+    background: url('../img/smallBgPicture.png') space;
 }
 
 body p {
@@ -275,7 +274,7 @@ footer p {
 }
 
 #fooldalnyeremenyjatekkep {
-    width: 20%;
+    width: 25%;
     border-radius: 12px;
 }
 
@@ -504,6 +503,11 @@ th, td {
     background-color: rgba(187, 195, 198, 0.4);
 }
 
+th {
+    font-weight: bold;
+    color: #962715;
+}
+
 th:hover, td:hover {
     background-color: rgba(232, 58, 30, 0.4);
 }
@@ -591,10 +595,9 @@ th:hover, td:hover {
 
 .eSportvid{
     display: block;
-    margin: auto;
     width: 500px;
     height: 300px;
-    margin-right: 50px;
+    margin: auto 50px auto auto;
     object-fit: cover;
     border-radius: 10px;
 }
@@ -621,6 +624,11 @@ th:hover, td:hover {
     font-size: 22px;
     margin: 24px 0 20px;
     font-variant: small-caps;
+}
+
+.elsoBetu::first-letter{
+    font-size: 200%;
+    color: #be2004;
 }
 
 .critics-img {
@@ -674,14 +682,13 @@ th:hover, td:hover {
     color: #f52b0e;
     font-weight: bold;
     font-size: 35px;
-    text-shadow: 0.5px 0.5px black;
+    text-shadow: 1px 1px black;
 }
 
 .criticsVideo{
-    margin: auto;
     width: 500px;
     height: 300px;
-    margin-left: 20px;
+    margin: auto auto auto 20px;
     object-fit: cover;
     border-radius: 10px;
 }
@@ -711,6 +718,10 @@ th:hover, td:hover {
 .kepekegymasMellett{
     display: flex;
     justify-content: center;
+}
+
+.storelink:hover{
+    outline: 5px solid rgba(178, 158, 158, 0.5);
 }
 
 /* == KONTAKT == */
@@ -932,4 +943,11 @@ form > div > label {
     form > div > label {
         margin: 0 3px;
     }
+}
+
+/* == UTOFORMAZAS == */
+
+@media print {
+    video, nav, .slideshow-container, #scroll-to-top, footer { display: none; }
+    hr { page-break-after: always; }
 }
