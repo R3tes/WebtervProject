@@ -228,7 +228,7 @@ main h2 {
 .kiemeltSzoveg {
     color: #962715;
     font-weight: bold;
-    font-size: 18px;
+    font-size: 20px;
 }
 
 section {
@@ -368,7 +368,7 @@ footer p {
 }
 
 .articleszoveg {
-    margin-bottom: 40px;
+    margin-bottom: 30px;
     font-size: 18px;
     color: rgba(0, 0, 0, .7);
 }
@@ -514,6 +514,203 @@ th:hover, td:hover {
     height: 1200px;
     margin-left: 150px;
     margin-top: 90px;
+}
+
+/* == E-sport == */
+
+.eSportArticlepost {
+    width: 80%;
+    position: relative;
+    left: 10%;
+    padding: 20px 10px;
+    background: linear-gradient(210deg, #BBC3C6, #5d5858);
+    display: flex;
+    align-items: center;
+    border-radius: 10px;
+    z-index: 1;
+}
+
+.eSportArticlepost-img {
+    transform: translateX(-50px);
+    position: relative;
+}
+
+.eSportArticlepost-img img {
+    width: 350px;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+    border-radius: 10px;
+}
+
+/* == BAJNOKSAG == */
+
+.bajnoksag-img{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    height: 350px;
+    border-radius: 10px;
+}
+
+.bajnoksagszoveg{
+    margin-top: 50px;
+}
+
+.bajnoksagform{
+    margin: 0 auto;
+    width: 50%;
+    background-color: rgba(255, 255, 255, 0.4);
+    padding: 10px 15px;
+}
+
+.bajnoksagform input[type=submit], .bajnoksagform input[type=reset] {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    background-color: #962715;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    cursor: pointer;
+}
+
+.bajnoksagform input[type=submit] {
+    background-color: #c9a311;
+}
+
+.bajnoksagform input[type=reset]:hover {
+    background-color: #e83a1e;
+}
+
+.bajnoksagform input[type=submit]:hover {
+    background-color: #fac707;
+}
+
+/* == ESPORT VIDEOK == */
+
+.eSportvid{
+    display: block;
+    margin: auto;
+    width: 500px;
+    height: 300px;
+    margin-right: 50px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.eSportvidInfo{
+    font-size: 22px;
+    font-weight: bold;
+    margin: 24px 0 20px;
+    text-transform: uppercase;
+    color: #962715;
+}
+
+.eSportvidSzoveg{
+    font-size: 18px;
+    color: rgba(0, 0, 0, .7);
+    font-style: italic;
+}
+
+/* == KRITIKAK == */
+
+.criticsCim{
+    font-weight: bold;
+    color: #962715;
+    font-size: 22px;
+    margin: 24px 0 20px;
+    font-variant: small-caps;
+}
+
+.critics-img {
+    transform: translateX(-10px);
+    position: relative;
+}
+
+.critics-img img{
+    width: 400px;
+    object-fit: cover;
+    display: block;
+    margin-right: 30px;
+    border-radius: 10px;
+}
+
+.critictspost {
+    width: 85%;
+    position: relative;
+    padding: 20px;
+    background: linear-gradient(180deg, #BBC3C6, #767676);
+    display: flex;
+    align-items: center;
+    z-index: 1;
+}
+
+/* == KRITIKAK BOVEBBEN == */
+
+.criticsImageOntop {
+    width: 80%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 30px;
+}
+
+.criticsfocim {
+    font-size: 50px;
+    color: #564948;
+    font-weight: bold;
+    font-variant: small-caps;
+    text-shadow: 1px 1px black;
+}
+
+.criticsalcim{
+    font-size: 30px;
+    font-variant: small-caps;
+    color: #887f7f;
+}
+
+.criticsKiemeltSzoveg {
+    color: #f52b0e;
+    font-weight: bold;
+    font-size: 35px;
+    text-shadow: 0.5px 0.5px black;
+}
+
+.criticsVideo{
+    margin: auto;
+    width: 500px;
+    height: 300px;
+    margin-left: 20px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+/* == TERMEKEK == */
+
+.storelink{
+    margin-right: auto;
+    margin-left: auto;
+    width: 25%;
+    box-sizing: border-box;
+    background-color: #4b4848;
+    color: #fff;
+
+    border-radius: 10px;
+    display: block;
+    text-decoration: none;
+}
+
+.storeImage{
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+    margin-bottom: 20px;
+}
+
+.kepekegymasMellett{
+    display: flex;
+    justify-content: center;
 }
 
 /* == KONTAKT == */
@@ -686,6 +883,13 @@ form > div > label {
     }
 
     .articlepost-img {
+        display: none;
+    }
+
+    .eSportArticlepost{
+        all: initial;
+    }
+    .eSportArticlepost-img{
         display: none;
     }
 
