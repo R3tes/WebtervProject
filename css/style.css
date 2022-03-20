@@ -1031,6 +1031,9 @@ form > div > label {
     .criticsfocim {
         font-size: 28px;
     }
+    .fooldalhirkep {
+        display: none;
+    }
 }
 
 /* == NYOMTATAS == */
