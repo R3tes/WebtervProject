@@ -927,6 +927,10 @@ form > div > label {
         display: none;
     }
 
+    .bajnoksag-img {
+        display: none;
+    }
+
     .articlepost {
         all: initial;
     }
@@ -943,8 +947,26 @@ form > div > label {
         display: none;
     }
 
+    .bajnoksagform{
+        width: 85%;
+        left: 0;
+    }
+
     .felhasznaloform {
         width: 85%;
+    }
+
+    #bajnoksagsection{
+        margin: 0 0;
+        left: 0;
+    }
+
+    #introduction{
+        width: 200px;
+    }
+
+    #bajnoksagSzovegsection{
+        margin: 0 10px;
     }
 
     #loginavatar {
@@ -1021,6 +1043,10 @@ form > div > label {
         transform: translateX(0px);
     }
 
+    .eSportvid{
+        max-width: 250px;
+    }
+
     .critics-img img {
         width: 175px;
         display: inline;
@@ -1031,6 +1057,7 @@ form > div > label {
     .criticsfocim {
         font-size: 28px;
     }
+
     .fooldalhirkep {
         display: none;
     }
@@ -1092,9 +1119,11 @@ form > div > label {
         font-size: 16px;
         text-shadow: 1px 1px black;
     }
+
     section {
         margin: 0 0;
     }
+
     p {
         margin-left: 0;
     }

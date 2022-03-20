@@ -45,8 +45,8 @@
 
 <!-- FŐ TARTALOM -->
 <main>
-    <section>
 
+    <section id="bajnoksagSzovegsection">
         <h2>Hosszú fennállásunk alkalmából Smash Bros. bajnokságot rendezünk!</h2>
 
         <img src="img/smashBrosBajnoksag.jpg" alt="bajnoksag" class="bajnoksag-img anim-zoomin">
@@ -71,10 +71,12 @@
             </p>
         </div>
 
-        <section>
         <h2>Amennyiben részt szeretnél venni a bajnokságban töltsd ki az alábbi jelentkező lapot!</h2>
+    </section>
+
+    <section id="bajnoksagsection">
         <div class="bajnoksagform">
-            <form action="#" method="POST" enctype="multipart/form-data">
+            <form action="#" method="POST">
                 <fieldset>
                     <legend>Személyes adatok</legend>
                     <label for="username" class="requiredmezo">Teljes neve:</label>
@@ -114,7 +116,7 @@
                     <br>
 
                     <label for="introduction">Bemutatkozás: (max. 2000 karakter): </label> <br>
-                    <textarea id="introduction" name="intro" maxlength="2000" rows="7" cols="50"
+                    <textarea id="introduction" name="intro" maxlength="2000"
                               placeholder="Rövid bemutatkozás"></textarea>
 
                 </fieldset>
@@ -124,9 +126,9 @@
 
             </form>
         </div>
-        </section>
-        <hr class="invisiblepagebreak">
     </section>
+    <hr class="invisiblepagebreak">
+
 </main>
 
 <!-- LÁBLÉC -->
