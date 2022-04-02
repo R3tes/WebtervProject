@@ -3,53 +3,24 @@
 <head>
     <title>Gameter</title>
     <meta charset="UTF-8"/>
-    <link rel="stylesheet" href="css/style.css"/>
+    <link rel="stylesheet" href="assets/css/style.css"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="img/flameicon_with_letters.png"/>
+    <link rel="icon" href="assets/img/flameicon_with_letters.png"/>
 </head>
 <body>
 <!-- FEJLÉC/MENÜ -->
 
-<header class="header ontop">
-
-    <div class="logo">
-        <a href="index.html">
-            <img src="img/long_logo.png" alt="gameter logo">
-        </a>
-    </div>
-
-    <div class="logo_without_img">
-        <a href="index.html">
-            <img src="img/long_logo_without_img.png" alt="gameter">
-        </a>
-    </div>
-
-    <nav>
-
-        <input type="checkbox" class="toggle-menu">
-        <div class="hamburger"></div>
-
-        <ul class="menu">
-            <li><a href="index.html">Főoldal</a></li>
-            <li><a href="hirek.html">Hírek</a></li>
-            <li><a href="store.html">Termékeink</a></li>
-            <li class="active"><a href="esport.html">E-sport</a></li>
-            <li><a href="nyeremenyjatek.html">Nyereményjáték</a></li>
-            <li><a href="kapcsolat.html">Kapcsolat</a></li>
-            <li><a href="gamecritics.html">Játék Kritikák</a></li>
-            <li><a href="bejelentkezes.html">Bejelentkezés</a></li>
-        </ul>
-    </nav>
-
-</header>
+<?php
+    include_once "common/header.php";
+?>
 
 <!-- FŐ TARTALOM -->
 <main>
-    <section>
 
+    <section id="bajnoksagSzovegsection">
         <h2>Hosszú fennállásunk alkalmából Smash Bros. bajnokságot rendezünk!</h2>
 
-        <img src="img/smashBrosBajnoksag.jpg" alt="bajnoksag" class="bajnoksag-img anim-zoomin">
+        <img src="assets/img/smashBrosBajnoksag.jpg" alt="bajnoksag" class="bajnoksag-img anim-zoomin">
 
         <div class="bajnoksagszoveg">
             <p>
@@ -71,10 +42,12 @@
             </p>
         </div>
 
-        <section>
         <h2>Amennyiben részt szeretnél venni a bajnokságban töltsd ki az alábbi jelentkező lapot!</h2>
+    </section>
+
+    <section id="bajnoksagsection">
         <div class="bajnoksagform">
-            <form action="#" method="POST" enctype="multipart/form-data">
+            <form action="#" method="POST">
                 <fieldset>
                     <legend>Személyes adatok</legend>
                     <label for="username" class="requiredmezo">Teljes neve:</label>
@@ -114,7 +87,7 @@
                     <br>
 
                     <label for="introduction">Bemutatkozás: (max. 2000 karakter): </label> <br>
-                    <textarea id="introduction" name="intro" maxlength="2000" rows="7" cols="50"
+                    <textarea id="introduction" name="intro" maxlength="2000"
                               placeholder="Rövid bemutatkozás"></textarea>
 
                 </fieldset>
@@ -124,15 +97,15 @@
 
             </form>
         </div>
-        </section>
-        <hr class="invisiblepagebreak">
     </section>
+    <hr class="invisiblepagebreak">
+
 </main>
 
 <!-- LÁBLÉC -->
 
-<footer>
-    <p class="kozepre">&copy; Gameter</p>
-</footer>
+<?php
+include_once "common/footer.php";
+?>
 </body>
 </html>

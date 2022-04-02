@@ -3,45 +3,16 @@
 <head>
     <title>Gameter</title>
     <meta charset="UTF-8"/>
-    <link rel="stylesheet" href="css/style.css"/>
+    <link rel="stylesheet" href="assets/css/style.css"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="img/flameicon_with_letters.png"/>
+    <link rel="icon" href="assets/img/flameicon_with_letters.png"/>
 </head>
 <body>
 <!-- FEJLÉC/MENÜ -->
 
-<header class="header ontop">
-
-    <div class="logo">
-        <a href="index.html">
-            <img src="img/long_logo.png" alt="gameter logo">
-        </a>
-    </div>
-
-    <div class="logo_without_img">
-        <a href="index.html">
-            <img src="img/long_logo_without_img.png" alt="gameter">
-        </a>
-    </div>
-
-    <nav>
-
-        <input type="checkbox" class="toggle-menu">
-        <div class="hamburger"></div>
-
-        <ul class="menu">
-            <li class="active"><a href="index.html">Főoldal</a></li>
-            <li><a href="hirek.html">Hírek</a></li>
-            <li><a href="store.html">Termékeink</a></li>
-            <li><a href="esport.html">E-sport</a></li>
-            <li><a href="nyeremenyjatek.html">Nyereményjáték</a></li>
-            <li><a href="kapcsolat.html">Kapcsolat</a></li>
-            <li><a href="gamecritics.html">Játék Kritikák</a></li>
-            <li><a href="bejelentkezes.html">Bejelentkezés</a></li>
-        </ul>
-    </nav>
-
-</header>
+<?php
+    include_once "common/header.php";
+?>
 
 <!-- FŐ TARTALOM -->
 <main>
@@ -49,12 +20,12 @@
     <section>
         <h2>Legfrisebb híreink...</h2>
         <div class="fooldalkepesszoveg">
-            <img src="img/hirek3.jpg" alt="George RR Martin" class="fooldalhirkep">
+            <img src="assets/img/hirek3.jpg" alt="George RR Martin" class="fooldalhirkep">
             <div>
                 <div class="articleinformacio">
                     <div class="articledatum">
                     </div>
-                    <h2 class="articlecim fooldalhircim"><a href="hirek_3.html">George R. R. Martin rendkívül
+                    <h2 class="articlecim fooldalhircim"><a href="hirek_3.php">George R. R. Martin rendkívül
                         büszke az Elden Ring sikerére </a></h2>
                     <p class="articleszoveg">
                         A világhírű fantasy író blogposztjában magasztalta a játékot és a FromSoftware fejlesztőit.
@@ -69,13 +40,13 @@
     <section>
         <h2>E heti nyereményjátékunk</h2>
         <div class="fooldalkepesszoveg">
-            <img src="img/tarsasjatek.png" alt="Társasjáték" id="fooldalnyeremenyjatekkep">
+            <img src="assets/img/tarsasjatek.png" alt="Társasjáték" id="fooldalnyeremenyjatekkep">
             <p>Az e heti nyereményjátékunk keretében a tied lehet három vadonatúj
                 <span class="kiemeltSzoveg">Piatnik Activity Club Edition</span>
                 felnőtt társasjáték egyike! De ez még nem minden... Ha márciusban minden héten teljesíted az alapvető
                 követelményeket,
                 esélyed lehet nyerni egy <span class="kiemeltSzoveg">Xbox Series X-et</span> is!
-                <a href="nyeremenyjatek.html" id="nyjreszvetel"> Vegyen részt a nyereményjátékban! </a>
+                <a href="nyeremenyjatek.php" id="nyjreszvetel"> Vegyen részt a nyereményjátékban! </a>
             </p>
         </div>
     </section>
@@ -85,12 +56,12 @@
     <section>
         <h2>Retrózás</h2>
         <div class="fooldalkepesszoveg">
-            <img src="img/critics3.jpg" alt="Playstation Classic" class="fooldalhirkep">
+            <img src="assets/img/critics3.jpg" alt="Playstation Classic" class="fooldalhirkep">
             <div>
                 <div class="articleinformacio">
                     <div class="articledatum">
                     </div>
-                    <h2 class="articlecim fooldalhircim"><a href="gamecritics_3.html">Régi konzol új külsőben</a></h2>
+                    <h2 class="articlecim fooldalhircim"><a href="gamecritics_3.php">Régi konzol új külsőben</a></h2>
                     <p class="articleszoveg">
                         Megjelent a közkedvelt ám már forgalomból kivont Playstation 1 felújított változata Playstation Classic néven.
                     </p>
@@ -105,8 +76,9 @@
 
 <!-- LÁBLÉC -->
 
-<footer>
-    <p class="kozepre">&copy; Gameter</p>
-</footer>
+<?php
+        include_once "common/footer.php";
+        ?>
+
 </body>
 </html>

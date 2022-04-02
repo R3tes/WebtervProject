@@ -3,9 +3,9 @@
 <head>
     <title>Gameter</title>
     <meta charset="UTF-8"/>
-    <link rel="stylesheet" href="css/style.css"/>
+    <link rel="stylesheet" href="assets/css/style.css"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="img/flameicon_with_letters.png"/>
+    <link rel="icon" href="assets/img/flameicon_with_letters.png"/>
 </head>
 <body>
 <!-- FEJLÉC/MENÜ -->
@@ -13,14 +13,14 @@
 <header class="header ontop">
 
     <div class="logo">
-        <a href="index.html">
-            <img src="img/long_logo.png" alt="gameter logo">
+        <a href="index.php">
+            <img src="assets/img/long_logo.png" alt="gameter logo">
         </a>
     </div>
 
     <div class="logo_without_img">
-        <a href="index.html">
-            <img src="img/long_logo_without_img.png" alt="gameter">
+        <a href="index.php">
+            <img src="assets/img/long_logo_without_img.png" alt="gameter">
         </a>
     </div>
 
@@ -30,14 +30,14 @@
         <div class="hamburger"></div>
 
         <ul class="menu">
-            <li><a href="index.html">Főoldal</a></li>
-            <li><a href="hirek.html">Hírek</a></li>
-            <li><a href="store.html">Termékeink</a></li>
-            <li><a href="esport.html">E-sport</a></li>
-            <li class="active"><a href="nyeremenyjatek.html">Nyereményjáték</a></li>
-            <li><a href="kapcsolat.html">Kapcsolat</a></li>
-            <li><a href="gamecritics.html">Játék Kritikák</a></li>
-            <li><a href="bejelentkezes.html">Bejelentkezés</a></li>
+            <li><a href="index.php">Főoldal</a></li>
+            <li><a href="hirek.php">Hírek</a></li>
+            <li><a href="store.php">Termékeink</a></li>
+            <li><a href="esport.php">E-sport</a></li>
+            <li class="active"><a href="nyeremenyjatek.php">Nyereményjáték</a></li>
+            <li><a href="kapcsolat.php">Kapcsolat</a></li>
+            <li><a href="gamecritics.php">Játék Kritikák</a></li>
+            <li><a href="bejelentkezes.php">Bejelentkezés</a></li>
         </ul>
     </nav>
 
@@ -58,7 +58,7 @@
 
     <section>
         <h2 class="withoutlargemrgns">A nevezés feltételei...</h2>
-        <img src="img/ny_socials.png" alt="socials" class="rightimage">
+        <img src="assets/img/ny_socials.png" alt="socials" class="rightimage">
         <ul class="egyszerulist">
             <li>Az elvárásokat bizonyító legalább közepes minőségű kép vagy videó. Kép esetében - ha szükséges - akár több szögből is!</li>
             <li>Kövesd a Gametert Instagramon!</li>
@@ -170,7 +170,7 @@
                     <td headers="nyertes">Dűszerné Major Anna</td>
                 </tr>
             </table>
-            <img src="img/nyj_winner.png" alt="nyertes" id="tableimage">
+            <img src="assets/img/nyj_winner.png" alt="nyertes" id="tableimage">
         </div>
         <hr class="invisiblepagebreak">
         <p class="insidearticledisclaimer">(*) Ha esetleg a nevek közé becsúszott olyan is, amely offenzív/nincs itt helye, elnézést. Nem az a cél.</p>
@@ -180,8 +180,8 @@
 
 <!-- LÁBLÉC -->
 
-<footer>
-    <p class="kozepre">&copy; Gameter</p>
-</footer>
+<?php
+include_once "common/footer.php";
+?>
 </body>
 </html>

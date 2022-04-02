@@ -3,45 +3,16 @@
 <head>
     <title>Gameter</title>
     <meta charset="UTF-8"/>
-    <link rel="stylesheet" href="css/style.css"/>
+    <link rel="stylesheet" href="assets/css/style.css"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="img/flameicon_with_letters.png"/>
+    <link rel="icon" href="assets/img/flameicon_with_letters.png"/>
 </head>
 <body>
 <!-- FEJLÉC/MENÜ -->
 
-<header class="header ontop">
-
-    <div class="logo">
-        <a href="index.html">
-            <img src="img/long_logo.png" alt="gameter logo">
-        </a>
-    </div>
-
-    <div class="logo_without_img">
-        <a href="index.html">
-            <img src="img/long_logo_without_img.png" alt="gameter">
-        </a>
-    </div>
-
-    <nav>
-
-        <input type="checkbox" class="toggle-menu">
-        <div class="hamburger"></div>
-
-        <ul class="menu">
-            <li><a href="index.html">Főoldal</a></li>
-            <li><a href="hirek.html">Hírek</a></li>
-            <li><a href="store.html">Termékeink</a></li>
-            <li class="active"><a href="esport.html">E-sport</a></li>
-            <li><a href="nyeremenyjatek.html">Nyereményjáték</a></li>
-            <li><a href="kapcsolat.html">Kapcsolat</a></li>
-            <li><a href="gamecritics.html">Játék Kritikák</a></li>
-            <li><a href="bejelentkezes.html">Bejelentkezés</a></li>
-        </ul>
-    </nav>
-
-</header>
+<?php
+    include_once "common/header.php";
+?>
 
 <!-- FŐ TARTALOM -->
 <main id="withoutbg">
@@ -52,7 +23,7 @@
     <section>
         <div class="articlepost">
             <video controls class="eSportvid">
-                <source src="videos/CSGO_moments.mp4" type="video/mp4"/>
+                <source src="assets/videos/CSGO_moments.mp4" type="video/mp4"/>
                 CS:GO Legjobb pillanatok
             </video>
             <div>
@@ -71,12 +42,12 @@
     <section>
         <div class="articlepost">
             <video controls class="eSportvid">
-                <source src="videos/LoL_stream.mp4" type="video/mp4"/>
+                <source src="assets/videos/LoL_stream.mp4" type="video/mp4"/>
                 League of Legends nyitó nap
             </video>
             <div>
                 <p class="eSportvidInfo">
-                    Nézd vissza a League of Legends 2022-es szeonjának nyitó élő közvetítését
+                    Nézd vissza a League of Legends 2022-es szezonjának nyitó élő közvetítését
                 </p>
                 <p class="eSportvidSzoveg">
                     Ha lemaradtál volna lesd meg a League of Legends legújabb szenjoának nyitó napi közvetítését,
@@ -91,7 +62,7 @@
     <section>
         <div class="articlepost">
             <video controls class="eSportvid">
-                <source src="videos/Dota_2_final.mp4" type="video/mp4"/>
+                <source src="assets/videos/Dota_2_final.mp4" type="video/mp4"/>
                 Dota 2 nemzetközi finálé
             </video>
             <div>
@@ -110,8 +81,8 @@
 
 <!-- LÁBLÉC -->
 
-<footer>
-    <p class="kozepre">&copy; Gameter</p>
-</footer>
+<?php
+include_once "common/footer.php";
+?>
 </body>
 </html>

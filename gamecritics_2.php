@@ -3,45 +3,16 @@
 <head>
     <title>Gameter</title>
     <meta charset="UTF-8"/>
-    <link rel="stylesheet" href="css/style.css"/>
+    <link rel="stylesheet" href="assets/css/style.css"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="img/flameicon_with_letters.png"/>
+    <link rel="icon" href="assets/img/flameicon_with_letters.png"/>
 </head>
 <body>
 <!-- FEJLÉC/MENÜ -->
 
-<header class="header" id="ontop">
-
-    <div class="logo">
-        <a href="index.html">
-            <img src="img/long_logo.png" alt="gameter logo">
-        </a>
-    </div>
-
-    <div class="logo_without_img">
-        <a href="index.html">
-            <img src="img/long_logo_without_img.png" alt="gameter">
-        </a>
-    </div>
-
-    <nav>
-
-        <input type="checkbox" class="toggle-menu">
-        <div class="hamburger"></div>
-
-        <ul class="menu">
-            <li><a href="index.html">Főoldal</a></li>
-            <li><a href="hirek.html">Hírek</a></li>
-            <li><a href="store.html">Termékeink</a></li>
-            <li><a href="esport.html">E-sport</a></li>
-            <li><a href="nyeremenyjatek.html">Nyereményjáték</a></li>
-            <li><a href="kapcsolat.html">Kapcsolat</a></li>
-            <li class="active"><a href="gamecritics.html">Játék Kritikák</a></li>
-            <li><a href="bejelentkezes.html">Bejelentkezés</a></li>
-        </ul>
-    </nav>
-
-</header>
+<?php
+include_once "common/header.php";
+?>
 
 <!-- FŐ TARTALOM -->
 <main id="printable">
@@ -52,7 +23,7 @@
             <p class="criticsalcim">A legszebb világvége</p>
         </div>
 
-        <img src="img/critics2.jpg" alt="Horizon Forbidden West" class="criticsImageOntop">
+        <img src="assets/img/critics2.jpg" alt="Horizon Forbidden West" class="criticsImageOntop">
 
         <div class="insidearticledatum"><p>Vég Béla - 2022. Február. 15.</p></div>
         <div class="insidearticledisclaimer">
@@ -121,15 +92,15 @@
                 allowfullscreen>
         </iframe>
 
-        <p><a href="hirek.html" id="backtohirek">Vissza a kritikákhoz</a></p>
+        <p><a href="gamecritics.php" id="backtohirek">Vissza a kritikákhoz</a></p>
     </section>
 
 </main>
 
 <!-- LÁBLÉC -->
 
-<footer>
-    <p class="kozepre">&copy; Gameter</p>
-</footer>
+<?php
+include_once "common/footer.php";
+?>
 </body>
 </html>

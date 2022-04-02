@@ -3,51 +3,22 @@
 <head>
     <title>Gameter</title>
     <meta charset="UTF-8"/>
-    <link rel="stylesheet" href="css/style.css"/>
+    <link rel="stylesheet" href="assets/css/style.css"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="img/flameicon_with_letters.png"/>
+    <link rel="icon" href="assets/img/flameicon_with_letters.png"/>
 </head>
 <body>
 <!-- FEJLÉC/MENÜ -->
 
-<header class="header" id="ontop">
-
-    <div class="logo">
-        <a href="index.html">
-            <img src="img/long_logo.png" alt="gameter logo">
-        </a>
-    </div>
-
-    <div class="logo_without_img">
-        <a href="index.html">
-            <img src="img/long_logo_without_img.png" alt="gameter">
-        </a>
-    </div>
-
-    <nav>
-
-        <input type="checkbox" class="toggle-menu">
-        <div class="hamburger"></div>
-
-        <ul class="menu">
-            <li><a href="index.html">Főoldal</a></li>
-            <li  class="active"><a href="hirek.html">Hírek</a></li>
-            <li><a href="#">Termékeink</a></li>
-            <li><a href="esport.html">E-sport</a></li>
-            <li><a href="nyeremenyjatek.html">Nyereményjáték</a></li>
-            <li><a href="kapcsolat.html">Kapcsolat</a></li>
-            <li><a href="#">Játék Kritikák</a></li>
-            <li><a href="bejelentkezes.html">Bejelentkezés</a></li>
-        </ul>
-    </nav>
-
-</header>
+<?php
+    include_once "common/header.php";
+?>
 
 <!-- FŐ TARTALOM -->
 <main>
 
     <section>
-        <img src="img/hirek2.jpg" alt="xbox kontroller" class="topimage">
+        <img src="assets/img/hirek2.jpg" alt="xbox kontroller" class="topimage">
         <h2 class="insidearticleheader kozepre">Az Nvidiát megtámadó hackerek 70 ezer ember adatait tették közzé</h2>
         <div class="insidearticledatum"><p>Szombat, 2022. március 5.</p><p>Ismeretlen szerző</p></div>
         <div class="insidearticledisclaimer"><span>A cikk nem saját. Forrása <a href="https://pcworld.hu/pcwlite/az-nvidiat-megtamado-hackerek-70-ezer-ember-adatait-tettek-kozze-307397.html" target="_blank">itt</a> elérhető, kizárólag placeholder célból lett a tartalmi lényeg átmásolva.</span></div>
@@ -58,15 +29,15 @@
         <p>A csapat korábban már kiszivárogtatott némi forráskódot, amelyet a cégtől loptak el, most viszont egyel tovább mentek és a cég alkalmazottainak adatait tették elérhetővé. Egészen pontosan 71 355 ember belépési adatai kerültek fel az internetre, ami azért furcsa, mert a publikusan elérhető információk szerint az Nvidiának nagyjából 20 000 alkalmazottja lehet és míg konkrét számokat a cég nem volt hajlandó megosztani, a Tom's Hardware munkatársának is megerősítették, hogy nagyjából ez a nagyságrend tükrözi a valóságot.</p>
         <p>Nyilván ez nem feltétlenül jelenti azt, hogy a kiszivárogtatott adatok hamisak és egyszerű pánikkeltés céljával készültek, arról is lehet szó, hogy az adatbázis minden korábbi alkalmazottat tartalmaz, akár azokat is beleértve, akik kontraktorként vagy hasonló ideiglenes megállapodások keretében dolgoztak a cégnek.</p>
         <p>A nevek és titkosított jelszavak mellett két korábbi driver tanúsítvány is előkerült és bár szerencsére már lejártak, a Windows még most is megengedi, hogy driverek aláírására használjuk őket, szóval nem lepődnénk meg, ha idővel ezekkel is megpróbálna valaki visszaélni.</p>
-        <p><a href="hirek.html" id="backtohirek">Vissza a hírekhez</a></p>
+        <p><a href="hirek.php" id="backtohirek">Vissza a hírekhez</a></p>
     </section>
 
 </main>
 
 <!-- LÁBLÉC -->
 
-<footer>
-    <p class="kozepre">&copy; Gameter</p>
-</footer>
+<?php
+include_once "common/footer.php";
+?>
 </body>
 </html>

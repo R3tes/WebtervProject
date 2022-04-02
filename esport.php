@@ -3,45 +3,16 @@
 <head>
     <title>Gameter</title>
     <meta charset="UTF-8"/>
-    <link rel="stylesheet" href="css/style.css"/>
+    <link rel="stylesheet" href="assets/css/style.css"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="img/flameicon_with_letters.png"/>
+    <link rel="icon" href="assets/img/flameicon_with_letters.png"/>
 </head>
 <body>
 <!-- FEJLÉC/MENÜ -->
 
-<header class="header ontop">
-
-    <div class="logo">
-        <a href="index.html">
-            <img src="img/long_logo.png" alt="gameter logo">
-        </a>
-    </div>
-
-    <div class="logo_without_img">
-        <a href="index.html">
-            <img src="img/long_logo_without_img.png" alt="gameter">
-        </a>
-    </div>
-
-    <nav>
-
-        <input type="checkbox" class="toggle-menu">
-        <div class="hamburger"></div>
-
-        <ul class="menu">
-            <li><a href="index.html">Főoldal</a></li>
-            <li><a href="hirek.html">Hírek</a></li>
-            <li><a href="store.html">Termékeink</a></li>
-            <li class="active"><a href="esport.html">E-sport</a></li>
-            <li><a href="nyeremenyjatek.html">Nyereményjáték</a></li>
-            <li><a href="kapcsolat.html">Kapcsolat</a></li>
-            <li><a href="gamecritics.html">Játék Kritikák</a></li>
-            <li><a href="bejelentkezes.html">Bejelentkezés</a></li>
-        </ul>
-    </nav>
-
-</header>
+<?php
+    include_once "common/header.php";
+?>
 
 <!-- FŐ TARTALOM -->
 <main id="withoutbg">
@@ -53,7 +24,7 @@
         <div class="eSportArticlepost">
 
             <div class="eSportArticlepost-img anim-zoomin">
-                <img src="img/streaming.jpg" alt="e-sport hiroldal">
+                <img src="assets/img/streaming.jpg" alt="e-sport hiroldal">
             </div>
 
             <div class="articleinformacio">
@@ -62,7 +33,7 @@
                     Nézd vissza ha lemaradtál a legnagyobb leszámolásokat és legjobb rövid pillanatokat:
                     League of Legends / CS:GO / Dota 2 és még sok más kategóriában.
                 </p>
-                <a href="esport_live.html" class="reszletesebben">Irány a közvetítések</a>
+                <a href="esport_live.php" class="reszletesebben">Irány a közvetítések</a>
             </div>
 
         </div>
@@ -74,7 +45,7 @@
         <div class="eSportArticlepost">
 
             <div class="eSportArticlepost-img anim-zoomin">
-                <img src="img/esport_cup.jpg" alt="verseny kupa">
+                <img src="assets/img/esport_cup.jpg" alt="verseny kupa">
             </div>
 
             <div class="articleinformacio">
@@ -83,7 +54,7 @@
                     Az oldal hosszú fennálását megünnepelvén kis csapatunk egy mini bajnokságot hírdet melyben értékes díjakat
                     kapnak a legjobban teljesítők. Jelentkezz és mutasd meg mire vagy képes az idei PlayIT shown rendezett versenyen!
                 </p>
-                <a href="bajnoksag.html" class="reszletesebben">Verseny részletek</a>
+                <a href="bajnoksag.php" class="reszletesebben">Verseny részletek</a>
             </div>
 
         </div>
@@ -94,8 +65,8 @@
 
 <!-- LÁBLÉC -->
 
-<footer>
-    <p class="kozepre">&copy; Gameter</p>
-</footer>
+<?php
+include_once "common/footer.php";
+?>
 </body>
 </html>

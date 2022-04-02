@@ -3,45 +3,16 @@
 <head>
   <title>Gameter</title>
   <meta charset="UTF-8"/>
-  <link rel="stylesheet" href="css/style.css"/>
+  <link rel="stylesheet" href="assets/css/style.css"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" href="img/flameicon_with_letters.png"/>
+  <link rel="icon" href="assets/img/flameicon_with_letters.png"/>
 </head>
 <body>
   <!-- FEJLÉC/MENÜ -->
 
-  <header class="header ontop">
-
-    <div class="logo">
-      <a href="index.html">
-        <img src="img/long_logo.png" alt="gameter logo">
-      </a>
-    </div>
-
-    <div class="logo_without_img">
-      <a href="index.html">
-        <img src="img/long_logo_without_img.png" alt="gameter">
-      </a>
-    </div>
-
-    <nav>
-
-      <input type="checkbox" class="toggle-menu">
-      <div class="hamburger"></div>
-
-      <ul class="menu">
-        <li><a href="index.html">Főoldal</a></li>
-        <li  class="active"><a href="hirek.html">Hírek</a></li>
-        <li><a href="store.html">Termékeink</a></li>
-        <li><a href="esport.html">E-sport</a></li>
-        <li><a href="nyeremenyjatek.html">Nyereményjáték</a></li>
-        <li><a href="kapcsolat.html">Kapcsolat</a></li>
-        <li><a href="gamecritics.html">Játék Kritikák</a></li>
-        <li><a href="bejelentkezes.html">Bejelentkezés</a></li>
-      </ul>
-    </nav>
-
-  </header>
+  <?php
+    include_once "common/header.php";
+?>
 
   <!-- FŐ TARTALOM -->
   <main id="withoutbg">
@@ -52,7 +23,7 @@
     <section>
       <div class="articlepost">
         <div class="articlepost-img">
-          <img src="img/hirek3.jpg" alt="George RR Martin" class="anim-zoomin">
+          <img src="assets/img/hirek3.jpg" alt="George RR Martin" class="anim-zoomin">
         </div>
         <div class="articleinformacio">
           <div class="articledatum">
@@ -63,7 +34,7 @@
           <p class="articleszoveg">
             A világhírű fantasy író blogposztjában magasztalta a játékot és a FromSoftware fejlesztőit.
           </p>
-          <a href="hirek_3.html" class="reszletesebben">Részletesebben</a>
+          <a href="hirek_3.php" class="reszletesebben">Részletesebben</a>
         </div>
       </div>
     </section>
@@ -73,7 +44,7 @@
     <section>
     <div class="articlepost">
       <div class="articlepost-img">
-        <img src="img/hirek2.jpg" alt="nvidia konferencia" class="anim-zoomin">
+        <img src="assets/img/hirek2.jpg" alt="nvidia konferencia" class="anim-zoomin">
       </div>
       <div class="articleinformacio">
         <div class="articledatum">
@@ -84,7 +55,7 @@
         <p class="articleszoveg">
           Hatalmas mennyiségű alkalmazott adatait tették elérhetővé a hackerek, de valami nem teljesen stimmel ezekkel a számokkal.
         </p>
-        <a href="hirek_2.html" class="reszletesebben">Részletesebben</a>
+        <a href="hirek_2.php" class="reszletesebben">Részletesebben</a>
       </div>
     </div>
     </section>
@@ -94,7 +65,7 @@
     <section>
     <div class="articlepost">
       <div class="articlepost-img">
-        <img src="img/hirek1.jpg" alt="xbox kontroller" class="anim-zoomin">
+        <img src="assets/img/hirek1.jpg" alt="xbox kontroller" class="anim-zoomin">
       </div>
       <div class="articleinformacio">
         <div class="articledatum">
@@ -105,7 +76,7 @@
         <p class="articleszoveg">
           A napokban azt kérték a komplett játékipartól, hogy keményen büntessék meg Oroszországot – ennek a kérésnek tesz most készséggel eleget a Microsoft.
         </p>
-        <a href="hirek_1.html" class="reszletesebben">Részletesebben</a>
+        <a href="hirek_1.php" class="reszletesebben">Részletesebben</a>
       </div>
     </div>
     </section>
@@ -114,8 +85,8 @@
 
   <!-- LÁBLÉC -->
 
-  <footer>
-    <p class="kozepre">&copy; Gameter</p>
-  </footer>
+  <?php
+  include_once "common/footer.php";
+  ?>
 </body>
 </html>
