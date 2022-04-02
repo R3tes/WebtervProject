@@ -42,7 +42,11 @@
         <iframe class="criticsVideo" src="https://www.youtube.com/embed/TWaRZS89uyk" title="YouTube video player"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
+<<<<<<< HEAD:gamecritics_1.php
         <p><a href="gamecritics.php" id="backtohirek">Vissza a kritikákhoz</a></p>
+=======
+        <p><a href="gamecritics.html" id="backtohirek">Vissza a kritikákhoz</a></p>
+>>>>>>> e91ed561d8a390446c06378dbf628cf4503fda9b:gamecritics_1.html
     </section>
 
 </main>
