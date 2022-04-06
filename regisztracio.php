@@ -1,8 +1,9 @@
 <?php
 include_once "classes/Felhasznalo.php";
 include_once "common/fuggvenyek.php";
+session_start();
 
-$felhasznalok = adatokBetoltese("data/felhasznalok.txt");
+$users = adatokBetoltese("data/felhasznalok.txt");
 
 $hibak = [];
 
@@ -22,16 +23,15 @@ if (isset($_POST["regisztraciogomb"])) {
         $jelolonegyzetek = $_POST["kotelezocheckbox"];
     }
 
-    if (trim($felhasznalonev) === "" || trim($jelszo) === "" || trim($ellenorzoJelszo) === "" ||
-        trim($email) === "") {
+    if (trim($felhasznalonev) === "" || trim($jelszo) === "" || trim($ellenorzoJelszo) === "" || trim($email) === "") {
         $hibak[] = "Minden kötelezően kitöltendő mezőt ki kell tölteni!";
     }
 
-    if(strlen($felhasznalonev) > 50){
-    $hibak[] = "A felhasználónév maximum 50 karakter lehet!";
+    if (strlen($felhasznalonev) > 50) {
+        $hibak[] = "A felhasználónév maximum 50 karakter lehet!";
     }
 
-    foreach ($felhasznalok as $felhasznalo) {
+    foreach ($users as $felhasznalo) {
         if ($felhasznalo->getFelhasznalonev() === $felhasznalonev) {
             $hibak[] = "A felhasználónév már foglalt!";
         }
@@ -41,8 +41,12 @@ if (isset($_POST["regisztraciogomb"])) {
         $hibak[] = "A jelszónak legalább 8 karakter hosszúnak kell lennie!";
     }
 
-    if (!preg_match("/[A-Za-z]/", $jelszo) || !preg_match("/[0-9]/", $jelszo)) {
-        $hibak[] = "A jelszónak tartalmaznia kell betűt és számjegyet is!";
+    if (!preg_match("/[A-Z]/", $jelszo) || !preg_match("/[a-z]/", $jelszo)) {
+        $hibak[] = "A jelszónak tartalmaznia kell kis- és nagybetűt is!";
+    }
+
+    if (!preg_match("/[0-9]/", $jelszo)) {
+        $hibak[] = "A jelszónak tartalmaznia kell számjegyet!";
     }
 
     if (!preg_match("/[0-9a-z.-]+@([0-9a-z-]+\.)+[a-z]{2,4}/", $email)) {
@@ -52,11 +56,13 @@ if (isset($_POST["regisztraciogomb"])) {
     if ($jelszo !== $ellenorzoJelszo) {
         $hibak[] = "A két jelszó nem egyezik!";
     }
-    foreach ($felhasznalok as $felhasznalo) {
+    foreach ($users as $felhasznalo) {
         if ($felhasznalo->getEmail() === $email) {
             $hibak[] = "Az e-mail cím már foglalt!";
         }
     }
+
+    profilkepFeltoltese($hibak, $felhasznalonev);
 
     if (count($jelolonegyzetek) < 2) {
         $hibak[] = "Mindkét kötelező jelölőnégyzetet be kell jelölni!";
@@ -65,9 +71,9 @@ if (isset($_POST["regisztraciogomb"])) {
     if (count($hibak) === 0) {
         $jelszo = password_hash($jelszo, PASSWORD_DEFAULT);
         $felhasznalo = new Felhasznalo($felhasznalonev, $jelszo, $email, $nem);
-        $felhasznalok[] = $felhasznalo;
-        print_r($felhasznalok);
-        adatokMentese("data/felhasznalok.txt", $felhasznalok);
+        $users[] = $felhasznalo;
+        adatokMentese("data/felhasznalok.txt", $users);
+        header("Location: regisztracio.php?sikeresMuvelet=true");
     }
 
 }
@@ -93,7 +99,12 @@ if (isset($_POST["regisztraciogomb"])) {
 
     <?php
 
+    if(isset($_GET["sikeresMuvelet"])) {
+        echo "<div><p>Sikeres regisztráció!</p></div>";
+    }
+
     if (count($hibak) > 0) {
+        echo "<div>";
 
         foreach ($hibak as $hiba) {
             echo "<p>" . $hiba . "</p>";
@@ -109,7 +120,7 @@ if (isset($_POST["regisztraciogomb"])) {
                 <fieldset>
                     <legend>Felhasználói adatok</legend>
                     <label for="username" class="requiredmezo">Felhasználónév (max. 50 karakter):</label>
-                    <input type="text" id="username" name="felhasznalonev" required maxlength="50">
+                    <input type="text" id="username" name="felhasznalonev" required maxlength="50" <?php if (isset($_POST["felhasznalonev"])) echo "value='" . $_POST["felhasznalonev"] . "'" ?>>
 
                     <label for="jelszo" class="requiredmezo">Jelszó:</label>
                     <input type="password" name="password" id="jelszo" required>
@@ -118,14 +129,14 @@ if (isset($_POST["regisztraciogomb"])) {
                     <input type="password" name="ellpassword" id="jelszoCheck" required>
 
                     <label for="email" class="requiredmezo">E-mail cím: </label>
-                    <input type="email" name="email" id="email" placeholder="nagysandor.ahodito@gmail.com">
+                    <input type="email" name="email" id="email" placeholder="nagysandor.ahodito@gmail.com" <?php if (isset($_POST["email"])) echo "value='" . $_POST["email"] . "'" ?>>
                 </fieldset>
 
                 <div>
                     Nem:
-                    <label> Férfi <input type="radio" name="gender" value="male"></label>
-                    <label> Nő <input type="radio" name="gender" value="female"></label>
-                    <label> Egyéb <input type="radio" name="gender" value="other"></label>
+                    <label> Férfi <input type="radio" name="gender" value="male" <?php if (isset($_POST["gender"]) && $_POST["gender"] === "male") echo "checked"; ?>> </label>
+                    <label> Nő <input type="radio" name="gender" value="female" <?php if (isset($_POST["gender"]) && $_POST["gender"] === "female") echo "checked"; ?>> </label>
+                    <label> Egyéb <input type="radio" name="gender" value="other" <?php if (isset($_POST["gender"]) && $_POST["gender"] === "other") echo "checked"; ?>> </label>
                 </div>
 
                 <label class="felhasznaloformCheckbox">

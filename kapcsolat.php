@@ -1,3 +1,36 @@
+<?php
+    include_once("classes/Uzenet.php");
+    include_once "common/fuggvenyek.php";
+    session_start();
+
+    $uzenetek = adatokBetoltese("data/uzenetek.txt");
+
+    $hibak = [];
+
+    if (isset($_POST["kontaktelkuld"])) {
+        $teljesNev = $_POST["kontaktteljesnev"];
+        $kontaktEmail = $_POST["kontaktemailcim"];
+        $uzenet = $_POST["kontaktuzenete"];
+
+        if (trim($teljesNev) === "" || trim($kontaktEmail) === "" || trim($uzenet) === "") {
+            $hibak[] = "Nem töltött ki minden mezőt!";
+        }
+
+        if (!preg_match("/[0-9a-z.-]+@([0-9a-z-]+\.)+[a-z]{2,4}/", $kontaktEmail)) {
+            $hibak[] = "A megadott e-mail cím formátuma nem megfelelő!";
+        }
+
+        if (count($hibak) === 0) {
+            $ujuzenet = new Uzenet($teljesNev, $kontaktEmail, $uzenet);
+            $uzenetek[] = $ujuzenet;
+            adatokMentese("data/uzenetek.txt", $uzenetek);
+            header("Location: kapcsolat.php?sikeresUzi=true");
+        }
+
+    }
+
+?>
+
 <!DOCTYPE html>
 <html lang="hu">
 <head>
@@ -28,15 +61,32 @@
         </div>
         <hr class="invisiblepagebreak">
         <h2>Amennyiben hibát észlel, forduljon ügyfélszolgálatunkhoz:</h2>
+
+            <?php
+
+                if(isset($_GET["sikeresUzi"])) {
+                    echo "<div><p>Az üzenetét sikeresen megkaptuk, minél hamarabb válaszolunk rá!</p></div>";
+                }
+
+                if (count($hibak) > 0) {
+                    echo "<div>";
+                    foreach ($hibak as $hiba) {
+                        echo "<p>" . $hiba . "</p>";
+                    }
+                    echo "</div>";
+                }
+
+            ?>
+
         <div class="kapcsolatform">
-            <form action="#" method="post">
-                <label for="name">Név</label>
-                <input type="text" id="name" name="teljesnev" placeholder="A neve...">
-                <label for="e-mail">E-mail cím</label>
-                <input type="email" id="e-mail" name="emailcim" placeholder="pelda@valami.com">
-                <label for="uzenet">Üzenet</label>
-                <textarea id="uzenet" name="uzenete" placeholder="Üzenete..." style="height:170px"></textarea>
-                <input type="submit" value="Elküldés">
+            <form action="kapcsolat.php" method="POST" enctype="multipart/form-data">
+                <label for="name" class="requiredmezo">Név</label>
+                <input type="text" id="name" name="kontaktteljesnev" placeholder="A neve...">
+                <label for="e-mail" class="requiredmezo">E-mail cím</label>
+                <input type="email" id="e-mail" name="kontaktemailcim" placeholder="pelda@valami.com">
+                <label for="uzenet" class="requiredmezo">Üzenet</label>
+                <textarea id="uzenet" name="kontaktuzenete" placeholder="Üzenete..." style="height:170px"></textarea>
+                <input type="submit" name="kontaktelkuld" value="Elküldés">
             </form>
         </div>
         <hr class="invisiblepagebreak">

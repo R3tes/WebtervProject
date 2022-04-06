@@ -1,3 +1,30 @@
+<?php
+    include_once "classes/Felhasznalo.php";
+    include_once "common/fuggvenyek.php";
+    session_start();
+
+    $users = adatokBetoltese("data/felhasznalok.txt");
+
+    $sikeresBejelentkezes = true;
+
+    if (isset($_POST["logingomb"])) {
+        $felhasznalonev = $_POST["felhasznalonev"];
+        $jelszo = $_POST["password"];
+
+        foreach ($users as $felhasznalo) {
+
+            if ($felhasznalo->getFelhasznalonev() === $felhasznalonev && password_verify($jelszo, $felhasznalo->getJelszo())) {
+                $_SESSION["user"] = $felhasznalo;
+                header("Location: profile.php");
+            }
+
+        }
+
+        $sikeresBejelentkezes = false;
+    }
+
+?>
+
 <!DOCTYPE html>
 <html lang="hu">
 <head>
@@ -18,6 +45,13 @@
 <main>
     <section>
         <h2 class="kozepre">Bejelentkezés</h2>
+
+        <?php
+            if (!$sikeresBejelentkezes) {
+                echo "<div><p>A belépési adatok nem megfelelőek!</p></div>";
+            }
+        ?>
+
         <div class="felhasznaloform">
             <img src="assets/img/loginPicture.jpg" alt="login avatar" id="loginavatar">
             <form action="#" method="POST" enctype="multipart/form-data">

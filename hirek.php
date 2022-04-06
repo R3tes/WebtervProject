@@ -1,3 +1,8 @@
+<?php
+include_once "common/fuggvenyek.php";
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="hu">
 <head>

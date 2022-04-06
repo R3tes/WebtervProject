@@ -1,3 +1,8 @@
+<?php
+include_once "common/fuggvenyek.php";
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="hu">
 <head>
@@ -92,11 +97,10 @@ include_once "common/header.php";
                 allowfullscreen>
         </iframe>
 
-<<<<<<< HEAD:gamecritics_2.php
+
         <p><a href="gamecritics.php" id="backtohirek">Vissza a kritikákhoz</a></p>
-=======
-        <p><a href="gamecritics.html" id="backtohirek">Vissza a kritikákhoz</a></p>
->>>>>>> e91ed561d8a390446c06378dbf628cf4503fda9b:gamecritics_2.html
+
+
     </section>
 
 </main>

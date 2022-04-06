@@ -1,8 +1,7 @@
 <?php
 
-function navigacioGeneralasa()
-{
-    $aktualisOldal = basename($_SERVER['PHP_SELF'], ".php"); #$_SERVER['REQUEST_URI']
+function navigacioGeneralasa() {
+    $aktualisOldal = basename($_SERVER['PHP_SELF'], ".php");
 
     if ($aktualisOldal === "gamecritics_1" || $aktualisOldal === "gamecritics_2" || $aktualisOldal === "gamecritics_3") {
         $aktualisOldal = "gamecritics";
@@ -41,11 +40,18 @@ function navigacioGeneralasa()
 
         "<li" . ($aktualisOldal === "gamecritics" ? " class='active'" : "") . ">" .
         "<a href='gamecritics.php'>Játék kritikák</a>" .
-        "</li>" .
-
-        "<li" . ($aktualisOldal === "bejelentkezes" ? " class='active'" : "") . ">" .
-        "<a href='bejelentkezes.php'>Bejelentkezés</a>" .
         "</li>";
+
+        if (isset($_SESSION["user"])) {
+            echo "<li" . ($aktualisOldal === "profile" ? " class='active'" : "") . ">" .
+            "<a href='profile.php'>Profil</a>" .
+            "</li>";
+        }
+        else {
+            echo "<li" . ($aktualisOldal === "bejelentkezes" ? " class='active'" : "") . ">" .
+            "<a href='bejelentkezes.php'>Bejelentkezés</a>" .
+            "</li>";
+        }
 }
 
 // Egy függvény, amely a második paraméterben kapott adattömb elemeit szerializálja és elmenti az első paraméterben
@@ -83,4 +89,37 @@ function adatokBetoltese(string $fajlnev): array {
 
     fclose($file);
     return $adatok;
+}
+
+function profilkepFeltoltese(array &$hibak, string $felhasznalonev) {
+
+    if (isset($_FILES["profile-picture"]) && is_uploaded_file($_FILES["profile-picture"]["tmp_name"])) {
+
+        if ($_FILES["profile-picture"]["error"] !== 0) {
+            $hibak[] = "Hiba történt a fájl feltöltése során!";
+        }
+
+        $engedelyezettKiterjesztesek = ["png", "jpg"];
+
+        $kiterjesztes = strtolower(pathinfo($_FILES["profile-picture"]["name"], PATHINFO_EXTENSION));
+
+        if (!in_array($kiterjesztes, $engedelyezettKiterjesztesek)) {
+            $hibak[] = "A profilkép kiterjesztése hibás! Engedélyezett formátumok: " . implode(", ", $engedelyezettKiterjesztesek) . "!";
+        }
+
+        if ($_FILES["profile-picture"]["size"] > 5242880) {
+            $hibak[] = "A fájl mérete túl nagy!";
+        }
+
+        if (count($hibak) === 0) {
+            $utvonal = "assets/img/profile-pictures/$felhasznalonev.$kiterjesztes";
+            $flag = move_uploaded_file($_FILES["profile-picture"]["tmp_name"], $utvonal);
+
+            if (!$flag) {
+                $hibak[] = "A profilkép elmentése nem sikerült!";
+            }
+        }
+
+    }
+
 }
