@@ -11,6 +11,8 @@ function navigacioGeneralasa() {
         $aktualisOldal = "bejelentkezes";
     } elseif ($aktualisOldal === "bajnoksag" || $aktualisOldal === "esport_live") {
         $aktualisOldal = "esport";
+    } elseif ($aktualisOldal === "change-psw" || $aktualisOldal === "delete-profile") {
+        $aktualisOldal = "profile";
     }
 
     echo
@@ -123,3 +125,4 @@ function profilkepFeltoltese(array &$hibak, string $felhasznalonev) {
     }
 
 }
+

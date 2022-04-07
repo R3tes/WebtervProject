@@ -1,6 +1,10 @@
 <?php
     include_once "common/fuggvenyek.php";
+    date_default_timezone_set("Europe/Budapest");
     session_start();
+
+
+
 ?>
 
 <!DOCTYPE html>

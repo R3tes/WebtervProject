@@ -11,7 +11,7 @@
     $profilkep = DEFAULT_PROFILKEP;
 
     $utvonal = "assets/img/profile-pictures/" . $_SESSION["user"]->getFelhasznalonev();
-    $engedelyezettKiterjesztesek = ["png", "jpg"];
+    $engedelyezettKiterjesztesek = ["png", "jpg", "jpeg"];
 
     foreach ($engedelyezettKiterjesztesek as $kit) {
         if (file_exists("$utvonal.$kit")) {
@@ -86,6 +86,14 @@
             echo "<p>" . $felhasznalo->getFelhasznalonev() . "</p>";
             echo "<p>" . $felhasznalo->getEmail() . "</p>";
         ?>
+
+        <form action="change-psw.php" method="POST" enctype="multipart/form-data">
+            <input type="submit" name="change-psw-btn" value="Jelszó módosítása">
+        </form>
+
+        <form action="delete-profile.php" method="POST" enctype="multipart/form-data">
+            <input type="submit" name="delete-profile-btn" value="Profil törlése">
+        </form>
 
         <form action="kijelentkezes.php" method="POST">
             <input type="submit" name="logout-btn" value="Kijelentkezés">

@@ -15,38 +15,9 @@ session_start();
 <body>
 <!-- FEJLÉC/MENÜ -->
 
-<header class="header" id="ontop">
-
-    <div class="logo">
-        <a href="index.php">
-            <img src="assets/img/long_logo.png" alt="gameter logo">
-        </a>
-    </div>
-
-    <div class="logo_without_img">
-        <a href="index.php">
-            <img src="assets/img/long_logo_without_img.png" alt="gameter">
-        </a>
-    </div>
-
-    <nav>
-
-        <input type="checkbox" class="toggle-menu">
-        <div class="hamburger"></div>
-
-        <ul class="menu">
-            <li><a href="index.php">Főoldal</a></li>
-            <li  class="active"><a href="hirek.php">Hírek</a></li>
-            <li><a href="store.php">Termékeink</a></li>
-            <li><a href="esport.php">E-sport</a></li>
-            <li><a href="nyeremenyjatek.php">Nyereményjáték</a></li>
-            <li><a href="kapcsolat.php">Kapcsolat</a></li>
-            <li><a href="gamecritics.php">Játék Kritikák</a></li>
-            <li><a href="bejelentkezes.php">Bejelentkezés</a></li>
-        </ul>
-    </nav>
-
-</header>
+<?php
+    include_once "common/header.php";
+?>
 
 <!-- FŐ TARTALOM -->
 <main>
