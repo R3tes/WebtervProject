@@ -1,6 +1,7 @@
 <?php
     include_once "classes/Felhasznalo.php";
     include_once "common/fuggvenyek.php";
+    include_once "classes/Uzenet.php";
     session_start();
 
     if (!isset($_SESSION["user"])) {
@@ -75,6 +76,8 @@
 
     <section>
 
+        <h1>Felhasználói adatok</h1>
+
         <img src="<?php echo $profilkep; ?>" alt="Profilkép" height="200">
 
         <form action="profile.php" method="POST" enctype="multipart/form-data">
@@ -98,6 +101,32 @@
         <form action="kijelentkezes.php" method="POST">
             <input type="submit" name="logout-btn" value="Kijelentkezés">
         </form>
+
+        <?php
+        if ($_SESSION["user"]->isAdmin()) {
+
+        echo '<h1>Adminisztrációs felület</h1>';
+
+        $messages = adatokBetoltese("data/uzenetek.txt");
+
+        echo '<h1>Üzenetek</h1>';
+
+        $sorszam = 1;
+
+        foreach ($messages as $msg) {
+            echo '<div>';
+            echo '<ul>';
+            echo '<li>Sorszám: ' . $sorszam . '</li>';
+            echo '<li>Küldő: ' . $msg->getKuldoNev() . ' </li>';
+            echo '<li>Küldő e-mail címe: ' . $msg->getKuldoEmail() . ' </li>';
+            echo '<li>Üzenet: ' . $msg->getUzenet() . ' </li>';
+            echo '</ul>';
+            echo '</div>';
+            $sorszam++;
+        }
+
+        }
+        ?>
 
     </section>
 </main>

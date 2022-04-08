@@ -12,6 +12,7 @@ class Felhasznalo
     private bool $vettEmarResztVersenyen;
     private array $bemutatkozas;
     private array $kosar;
+    private bool $admin;
 
     public function __construct(string $felhasznalonev, string $jelszo, string $email, string $nem)
     {
@@ -25,6 +26,7 @@ class Felhasznalo
         $this->vettEmarResztVersenyen = false;
         $this->bemutatkozas = [];
         $this->kosar = [];
+        $this->admin = false;
     }
 
     public function getFelhasznalonev(): string
@@ -121,6 +123,16 @@ class Felhasznalo
     public function setKosar(array $kosar): void
     {
         $this->kosar = $kosar;
+    }
+
+    public function isAdmin() : bool
+    {
+        return $this->admin;
+    }
+
+    public function setAdmin(bool $admin) : void
+    {
+        $this->admin = $admin;
     }
 
     public function __toString(): string

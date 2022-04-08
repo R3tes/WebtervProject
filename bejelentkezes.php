@@ -1,4 +1,5 @@
 <?php
+    #admin jogokkal rendelkező felhasználó: admin - pswd: admin
     include_once "classes/Felhasznalo.php";
     include_once "common/fuggvenyek.php";
     session_start();
@@ -19,6 +20,8 @@
             }
 
         }
+
+        #cookie cuccokkal rememberMe?
 
         $sikeresBejelentkezes = false;
     }
