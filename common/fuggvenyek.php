@@ -1,6 +1,7 @@
 <?php
 
-function navigacioGeneralasa() {
+function navigacioGeneralasa()
+{
     $aktualisOldal = basename($_SERVER['PHP_SELF'], ".php");
 
     if ($aktualisOldal === "gamecritics_1" || $aktualisOldal === "gamecritics_2" || $aktualisOldal === "gamecritics_3") {
@@ -46,20 +47,21 @@ function navigacioGeneralasa() {
 
         if (isset($_SESSION["user"])) {
             echo "<li" . ($aktualisOldal === "profile" ? " class='active'" : "") . ">" .
-            "<a href='profile.php'>Profil</a>" .
-            "</li>";
-        }
-        else {
+                "<a href='profile.php'>Profil</a>" .
+                "</li>";
+        } else {
             echo "<li" . ($aktualisOldal === "bejelentkezes" ? " class='active'" : "") . ">" .
-            "<a href='bejelentkezes.php'>Bejelentkezés</a>" .
-            "</li>";
+                "<a href='bejelentkezes.php'>Bejelentkezés</a>" .
+                "</li>";
         }
+
+        echo "<li" . ($aktualisOldal === "cart" ? " class='active'" : "") . ">" .
+            "<a href='cart.php'><img src='../assets/img/shoppingcart.png' alt='shopping cart'></a>" .
+            "</li>";
 }
 
-// Egy függvény, amely a második paraméterben kapott adattömb elemeit szerializálja és elmenti az első paraméterben
-// kapott elérési útvonalon található fájlba.
-
-function adatokMentese(string $fajlnev, array $adatok) {
+function adatokMentese(string $fajlnev, array $adatok)
+{
     $file = fopen($fajlnev, "w");
 
     if (!$file) {
@@ -73,10 +75,8 @@ function adatokMentese(string $fajlnev, array $adatok) {
     fclose($file);
 }
 
-// Egy függvény, amely a paraméterben kapott elérési útvonalon található fájlból beolvassa az adatokat.
-// A függvény visszatérési értéke egy tömb, ami a PHP értékké alakított (más szóval deszerializált) adatokat tárolja.
-
-function adatokBetoltese(string $fajlnev): array {
+function adatokBetoltese(string $fajlnev): array
+{
     $file = fopen($fajlnev, "r");
     $adatok = [];
 
@@ -93,7 +93,8 @@ function adatokBetoltese(string $fajlnev): array {
     return $adatok;
 }
 
-function profilkepFeltoltese(array &$hibak, string $felhasznalonev) {
+function profilkepFeltoltese(array &$hibak, string $felhasznalonev)
+{
 
     if (isset($_FILES["profile-picture"]) && is_uploaded_file($_FILES["profile-picture"]["tmp_name"])) {
 
@@ -101,7 +102,7 @@ function profilkepFeltoltese(array &$hibak, string $felhasznalonev) {
             $hibak[] = "Hiba történt a fájl feltöltése során!";
         }
 
-        $engedelyezettKiterjesztesek = ["png", "jpg"];
+        $engedelyezettKiterjesztesek = ["png", "jpg", "jpeg"];
 
         $kiterjesztes = strtolower(pathinfo($_FILES["profile-picture"]["name"], PATHINFO_EXTENSION));
 

@@ -13,7 +13,6 @@
     </div>
 
     <nav>
-
         <input type="checkbox" class="toggle-menu">
         <div class="hamburger"></div>
 

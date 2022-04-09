@@ -47,20 +47,20 @@
 <!-- FŐ TARTALOM -->
 <main>
     <section>
-        <h2 class="kozepre">Bejelentkezés</h2>
-
         <?php
+        echo "<section>";
             if (!$sikeresBejelentkezes) {
-                echo "<div><p>A belépési adatok nem megfelelőek!</p></div>";
+                echo "<div class='sikertelen'><p>A belépési adatok nem megfelelőek!</p></div>";
             }
+        echo "</section>";
         ?>
 
+        <h2 class="kozepre">Bejelentkezés</h2>
         <div class="felhasznaloform">
             <img src="assets/img/loginPicture.jpg" alt="login avatar" id="loginavatar">
-            <form action="#" method="POST" enctype="multipart/form-data">
+            <form action="bejelentkezes.php" method="POST" enctype="multipart/form-data">
                 <label for="username">Felhasználónév:</label>
-                <input type="text" id="username" name="felhasznalonev" placeholder="Add meg a felhasználóneved"
-                       required>
+                <input type="text" id="username" name="felhasznalonev" placeholder="Add meg a felhasználóneved" required>
 
                 <label for="jelszo">Jelszó:</label>
                 <input type="password" name="password" id="jelszo" placeholder="Add meg a jelszavad" required>

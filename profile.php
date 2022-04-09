@@ -1,43 +1,44 @@
 <?php
-    include_once "classes/Felhasznalo.php";
-    include_once "common/fuggvenyek.php";
-    include_once "classes/Uzenet.php";
-    session_start();
+include_once "classes/Felhasznalo.php";
+include_once "common/fuggvenyek.php";
+include_once "classes/Uzenet.php";
+session_start();
 
-    if (!isset($_SESSION["user"])) {
-        header("Location: bejelentkezes.php");
+if (!isset($_SESSION["user"])) {
+    header("Location: bejelentkezes.php");
+}
+
+define("DEFAULT_PROFILKEP", "assets/img/profile-pictures/default_profile.jpg");
+$profilkep = DEFAULT_PROFILKEP;
+
+$utvonal = "assets/img/profile-pictures/" . $_SESSION["user"]->getFelhasznalonev();
+$engedelyezettKiterjesztesek = ["png", "jpg", "jpeg"];
+
+foreach ($engedelyezettKiterjesztesek as $kit) {
+    if (file_exists("$utvonal.$kit")) {
+        $profilkep = "$utvonal.$kit";
     }
+}
 
-    define("DEFAULT_PROFILKEP", "assets/img/profile-pictures/default_profile.jpg");
-    $profilkep = DEFAULT_PROFILKEP;
+$hibak = [];
 
-    $utvonal = "assets/img/profile-pictures/" . $_SESSION["user"]->getFelhasznalonev();
-    $engedelyezettKiterjesztesek = ["png", "jpg", "jpeg"];
+if (isset($_POST["upload-btn"]) && is_uploaded_file($_FILES["profile-picture"]["tmp_name"])) {
+    profilkepFeltoltese($hibak, $_SESSION["user"]->getFelhasznalonev());
 
-    foreach ($engedelyezettKiterjesztesek as $kit) {
-        if (file_exists("$utvonal.$kit")) {
-            $profilkep = "$utvonal.$kit";
+    if (count($hibak) === 0) {
+
+        $kit = strtolower(pathinfo($_FILES["profile-picture"]["name"], PATHINFO_EXTENSION));
+        $utvonal = "assets/img/profile-pictures/" . $_SESSION["user"]->getFelhasznalonev() . "." . $kit;
+
+
+        if ($utvonal !== $profilkep && $profilkep !== DEFAULT_PROFILKEP) {
+            unlink($profilkep);
         }
+
+        header("Location: profile.php");
     }
+}
 
-    $hibak = [];
-
-    if (isset($_POST["upload-btn"]) && is_uploaded_file($_FILES["profile-picture"]["tmp_name"])) {
-        profilkepFeltoltese($hibak, $_SESSION["user"]->getFelhasznalonev());
-
-        if (count($hibak) === 0) {
-
-            $kit = strtolower(pathinfo($_FILES["profile-picture"]["name"], PATHINFO_EXTENSION));
-            $utvonal = "assets/img/profile-pictures/" . $_SESSION["user"]->getFelhasznalonev() . "." . $kit;
-
-
-            if ($utvonal !== $profilkep && $profilkep !== DEFAULT_PROFILKEP) {
-                unlink($profilkep);
-            }
-
-            header("Location: profile.php");
-        }
-    }
 
 ?>
 
@@ -54,79 +55,143 @@
 <!-- FEJLÉC/MENÜ -->
 
 <?php
-    include_once "common/header.php";
+include_once "common/header.php";
 
-    $felhasznalo = $_SESSION["user"];
+$felhasznalo = $_SESSION["user"];
 ?>
 
 <!-- FŐ TARTALOM -->
 <main>
 
-    <?php   
-        if (count($hibak) > 0) {
-            echo "<div>";
+    <?php
 
-            foreach ($hibak as $hiba) {
-                echo "<p>" . $hiba . "</p>";
-            }
+    if (isset($_GET["changeInDetails"])) {
+        header("Refresh:0");
+        header("Location: profile.php");
+    }
 
-            echo "</div>";
+    if (count($hibak) > 0) {
+        echo "<div>";
+
+        foreach ($hibak as $hiba) {
+            echo "<p>" . $hiba . "</p>";
         }
+
+        echo "</div>";
+    }
     ?>
 
     <section>
 
-        <h1>Felhasználói adatok</h1>
+        <div class="change-data-container">
+            <h1>Profilkép:</h1>
 
-        <img src="<?php echo $profilkep; ?>" alt="Profilkép" height="200">
+            <img src="<?php echo $profilkep; ?>" alt="Profilkép" height="250" width="250">
 
-        <form action="profile.php" method="POST" enctype="multipart/form-data">
-            <input type="file" name="profile-picture">
-            <input type="submit" name="upload-btn" value="Profilkép módosítása">
-        </form>
+            <form action="profile.php" method="POST" enctype="multipart/form-data" class="profilkep">
+                <label style="font-weight: bold"> Válassz profilképet (max 500x500):
+                    <input type="file" name="profile-picture">
+                </label>
+                <br>
+                <input type="submit" name="upload-btn" value="Profilkép módosítása">
+            </form>
+        </div>
 
-        <?php 
-            echo "<p>" . $felhasznalo->getFelhasznalonev() . "</p>";
-            echo "<p>" . $felhasznalo->getEmail() . "</p>";
+
+        <?php
+        if ($felhasznalo->getNem() === "male") {
+            $nemE = "Férfi";
+        } else if ($felhasznalo->getNem() === "female") {
+            $nemE = "Nő";
+        } else {
+            $nemE = "Egyéb";
+        }
+
         ?>
 
-        <form action="change-psw.php" method="POST" enctype="multipart/form-data">
-            <input type="submit" name="change-psw-btn" value="Jelszó módosítása">
-        </form>
+        <table class="profiladatok">
+            <tr>
+                <th colspan="3">Felhasználói adatok</th>
+            </tr>
 
-        <form action="delete-profile.php" method="POST" enctype="multipart/form-data">
-            <input type="submit" name="delete-profile-btn" value="Profil törlése">
-        </form>
+            <tr>
+                <th>Felhasználónév</th>
+                <td><?php echo $felhasznalo->getFelhasznalonev(); ?></td>
+                <td>
+                    <form action="change-usrname.php" method="POST" enctype="multipart/form-data">
+                        <input type="submit" name="change-usrname-btn" value="Módosítás">
+                    </form>
+                </td>
+            </tr>
+            <tr>
+                <th>E-mail cím</th>
+                <td><?php echo $felhasznalo->getEmail(); ?></td>
+                <td>
+                    <form action="change-email.php" method="POST" enctype="multipart/form-data">
+                        <input type="submit" name="change-email-btn" value="Módosítás">
+                    </form>
+                </td>
+            </tr>
+            <tr>
+                <th>Nem</th>
+                <td><?php echo $nemE; ?></td>
+                <td>
+                    <form action="change-gender.php" method="POST" enctype="multipart/form-data">
+                        <input type="submit" name="change-gender-btn" value="Módosítás">
+                    </form>
+                </td>
+            </tr>
+            <tr>
+                <th colspan="3">
+                    <form action="change-psw.php" method="POST" enctype="multipart/form-data">
+                        <input type="submit" name="change-psw-btn" value="Jelszó módosítása">
+                    </form>
+                </th>
+            </tr>
+            <tr>
+                <th colspan="3">
+                    <form action="delete-profile.php" method="POST" enctype="multipart/form-data">
+                        <input type="submit" name="delete-profile-btn" value="Profil törlése">
+                    </form>
+                </th>
+            </tr>
+        </table>
 
-        <form action="kijelentkezes.php" method="POST">
-            <input type="submit" name="logout-btn" value="Kijelentkezés">
-        </form>
+        <div class="kilepes">
+            <form action="kijelentkezes.php" method="POST">
+                <input type="submit" name="logout-btn" value="Kijelentkezés">
+            </form>
+        </div>
+
+        <hr class="invisiblepagebreak">
 
         <?php
         if ($_SESSION["user"]->isAdmin()) {
 
-        echo '<h1>Adminisztrációs felület</h1>';
+            echo '<h2 class="kozepre">Adminisztrációs felület</h2>';
 
-        $messages = adatokBetoltese("data/uzenetek.txt");
+            $messages = adatokBetoltese("data/uzenetek.txt");
 
-        echo '<h1>Üzenetek</h1>';
+            echo '<h2 class="kozepre">Üzenetek</h2>';
 
-        $sorszam = 1;
+            $sorszam = 1;
 
-        foreach ($messages as $msg) {
-            echo '<div>';
-            echo '<ul>';
-            echo '<li>Sorszám: ' . $sorszam . '</li>';
-            echo '<li>Küldő: ' . $msg->getKuldoNev() . ' </li>';
-            echo '<li>Küldő e-mail címe: ' . $msg->getKuldoEmail() . ' </li>';
-            echo '<li>Üzenet: ' . $msg->getUzenet() . ' </li>';
-            echo '</ul>';
-            echo '</div>';
-            $sorszam++;
-        }
+            foreach ($messages as $msg) {
+                echo '<div class="message-container">';
+                echo '<ul>';
+                echo '<li>Sorszám: ' . $sorszam . '</li>';
+                echo '<li>Küldő: ' . $msg->getKuldoNev() . ' </li>';
+                echo '<li>Küldő e-mail címe: ' . $msg->getKuldoEmail() . ' </li>';
+                echo '<li>Üzenet: ' . $msg->getUzenet() . ' </li>';
+                echo '</ul>';
+                echo '</div>';
+                $sorszam++;
+            }
 
         }
         ?>
+
+        <hr class="invisiblepagebreak">
 
     </section>
 </main>

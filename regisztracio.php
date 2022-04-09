@@ -12,7 +12,7 @@ if (isset($_POST["regisztraciogomb"])) {
     $jelszo = $_POST["password"];
     $ellenorzoJelszo = $_POST["ellpassword"];
     $email = $_POST["email"];
-    $nem = "egyéb";
+    $nem = "other";
     $jelolonegyzetek = [];
 
     if (isset($_POST["gender"])) {
@@ -98,18 +98,22 @@ if (isset($_POST["regisztraciogomb"])) {
 <main>
 
     <?php
-
     if(isset($_GET["sikeresMuvelet"])) {
-        echo "<div><p>Sikeres regisztráció!</p></div>";
+        echo '<section>';
+        echo "<div class='sikeres'><p>Sikeres regisztráció!</p></div>";
+        echo '</section>';
     }
 
     if (count($hibak) > 0) {
-        echo "<div>";
+        echo '<section>';
+        echo "<div class='sikertelen'>";
 
         foreach ($hibak as $hiba) {
             echo "<p>" . $hiba . "</p>";
         }
+
         echo "</div>";
+        echo '</section>';
     }
     ?>
 
@@ -122,7 +126,7 @@ if (isset($_POST["regisztraciogomb"])) {
                     <label for="username" class="requiredmezo">Felhasználónév (max. 50 karakter):</label>
                     <input type="text" id="username" name="felhasznalonev" required maxlength="50" <?php if (isset($_POST["felhasznalonev"])) echo "value='" . $_POST["felhasznalonev"] . "'" ?>>
 
-                    <label for="jelszo" class="requiredmezo">Jelszó:</label>
+                    <label for="jelszo" class="requiredmezo">Jelszó (min. 8 karakter, min. egy kis ÉS nagy betű):</label>
                     <input type="password" name="password" id="jelszo" required>
 
                     <label for="jelszoCheck" class="requiredmezo">Jelszó ismét:</label>
@@ -152,7 +156,7 @@ if (isset($_POST["regisztraciogomb"])) {
                     Nyilatkozom, hogy a megadott adatok a valóságnak megfelelnek még akkor is, ha nem.
                 </label>
 
-                <label for="avatar">Profilkép: <input type="file" name="profile-picture" id="avatar"> </label>
+                <label for="avatar">Profilkép (max. 500 MB): <input type="file" name="profile-picture" id="avatar"> </label>
 
                 <input type="submit" name="regisztraciogomb" value="Regisztráció">
                 <input type="reset" name="resetgomb" value="Törlés">

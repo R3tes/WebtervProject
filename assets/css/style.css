@@ -20,7 +20,8 @@
     align-items: center;
     background: linear-gradient(120deg, #BBC3C6, #767676);
     top: 0;
-    padding: 0 190px 0 190px;
+    padding-right: 6%;
+    padding-left: 6%;
 }
 
 .header * {
@@ -201,9 +202,9 @@ body p {
 
 body main {
     background: linear-gradient(rgba(252, 76, 0, 0.07), rgba(252, 76, 0, 0.07)), linear-gradient(#ffffff, #ffffff);
-    /*background-color: rgba(252, 76, 0, 0.07);*/
     width: 80%;
     margin: 115px auto 35px auto;
+    box-shadow: 3px 3px 7px #000;
 }
 
 .kiemeltParagrafus {
@@ -243,6 +244,26 @@ section {
 .invisiblepagebreak {
     margin-top: 50px;
     visibility: hidden;
+}
+
+.message-container ul li {
+    font-weight: bold;
+    margin: 10px 0;
+    font: 15px 'trebuchet MS', 'lucida sans', sans-serif;
+    text-shadow: 0 1px 0 rgba(255,255,255,.5);
+
+}
+
+.message-container ul {
+    margin-left: 20px;
+}
+
+.message-container {
+    border: 2px solid black;
+    border-radius: 10px;
+    background: #cccccc;
+    padding: 20px 15px;
+    width: 30%;
 }
 
 /* == FOOTER == */
@@ -538,9 +559,9 @@ th {
     color: #962715;
 }
 
-th:hover, td:hover {
+/*th:hover, td:hover {
     background-color: rgba(232, 58, 30, 0.4);
-}
+}*/
 
 
 #tableimage {
@@ -898,6 +919,89 @@ form > div > label {
     margin-bottom: 15px;
 }
 
+.sikertelen {
+    width: 60%;
+    margin: 0 auto;
+    border: 5px solid #ef2d2d;
+    text-align: center;
+    font-weight: bold;
+    background-color: #f08484;
+}
+
+
+.sikeres {
+    width: 60%;
+    margin: 20px auto 0;
+    padding: 10px;
+    font-weight: bold;
+    text-align: center;
+    border: 5px solid #42ee46;
+    background-color: #a2f5a4;
+}
+
+.sikertelen p, .sikeres p {
+    padding: 5px 0;
+    margin: 5px 0;
+}
+
+/* == PROFIL == */
+.profiladatok{
+    margin: 50px auto;
+    background-color: #806e6e;
+    border-collapse: collapse;
+}
+
+.profiladatok th, td {
+    border: 2px solid #af5027;
+    text-align: center;
+    font-weight: bold;
+}
+
+.profiladatok th {
+    color: #d3210a;
+}
+
+.profiladatok td {
+    color: #000000;
+}
+
+.profiladatok input[type="submit"] {
+    background-color: #e05911;
+    box-shadow: 4px 4px 5px #000;
+    text-transform: uppercase;
+    border-radius: 20px;
+}
+
+.profiladatok input[type="submit"]:hover {
+    background-color: #decb5e;
+}
+
+.kilepes input[type="submit"] {
+    width: 50%;
+    background-color: #ad2d2d;
+    box-shadow: 4px 4px 5px #000;
+    text-transform: uppercase;
+    border-radius: 20px;
+    font-weight: bold;
+}
+
+.kilepes input[type="submit"]:hover {
+    background-color: #dc0909;
+}
+
+.profilkep input[type="submit"]{
+    width: 40%;
+    background-color: #e05911;
+    box-shadow: 4px 4px 5px #000;
+    text-transform: uppercase;
+    border-radius: 20px;
+    font-weight: bold;
+}
+
+.profilkep input[type="submit"]:hover {
+    background-color: #decb5e;
+}
+
 /* == UTOFORMAZAS == */
 @media only screen and (max-width: 950px) {
     body p {
@@ -1061,6 +1165,14 @@ form > div > label {
     .fooldalhirkep {
         display: none;
     }
+}
+
+.change-data-container {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: 0 auto;
+    width: 50%;
 }
 
 /* == NYOMTATAS == */

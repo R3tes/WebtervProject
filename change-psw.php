@@ -37,6 +37,10 @@
                     $hibak[] = "A jelszónak tartalmaznia kell számjegyet!";
                 }
 
+                if (trim($jelszo) === "" || trim($ellenorzoJelszo) === "" || trim($ujJelszo) === "") {
+                    $hibak[] = "Minden kötelezően kitöltendő mezőt ki kell tölteni!";
+                }
+
                 if ($ujJelszo !== $ellenorzoJelszo) {
                     $hibak[] = "A két jelszó nem egyezik!";
                     echo $ujJelszo;
@@ -78,13 +82,15 @@
 <main>
 
     <section>
-        <h1>Jelszó módosítása</h1>
         <?php
             if (isset($_GET["sikeres"])) {
+                echo '<section';
                 echo "<div class>Sikeresen megváltoztattad a jelszavad!</div>";
+                echo '</section>';
             }
 
             if (count($hibak) > 0) {
+                echo '<section>';
                 echo "<div class>";
 
                 foreach ($hibak as $hiba) {
@@ -92,27 +98,32 @@
                 }
 
                 echo "</div>";
+                echo '</section>';
             }
         ?>
-        <div>
+        <div class="change-data-container">
+            <h2>Jelszó módosítása</h2>
             <img src="assets/img/loginPicture.jpg" alt="Avatar" style="height:150px">
             <form action="change-psw.php" method="POST" autocomplete="off">
-                <label for="old-psw" class="required-label">Régi jelszó: </label>
+                <label for="old-psw" class="requiredmezo">Régi jelszó: </label>
                 <input type="password" name="old-psw" id="old-psw" required>
 
-                <label for="new-psw" class="required-label">Új jelszó: </label>
+                <label for="new-psw" class="requiredmezo">Új jelszó (min. 8 karakter, min. egy kis ÉS nagy betű): </label>
                 <input type="password" name="new-psw" id="new-psw" required>
 
-                <label for="new-psw-again" class="required-label">Új jelszó újra: </label>
+                <label for="new-psw-again" class="requiredmezo">Új jelszó újra: </label>
                 <input type="password" name="new-psw-again" id="new-psw-again" required>
 
                 <input type="submit" name="change-psw-submit-btn" value="Módosítás">
             </form>
+
+            <form action="profile.php?changeInDetails=true" method="POST">
+                <input type="submit" name="back-to-profile-btn" value="Vissza a profilra">
+            </form>
         </div>
 
-        <form action="profile.php" method="POST" class="logout-form">
-            <input type="submit" name="back-to-profile-btn" value="Vissza a profilra">
-        </form>
+        <hr class="invisiblepagebreak">
+
     </section>
 </main>
 
