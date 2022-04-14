@@ -35,6 +35,7 @@ if (isset($_POST["change-email-submit-btn"])) {
             if (count($hibak) === 0) {
                 $felhasznalo->setEmail($ujEmail);
                 adatokMentese("data/felhasznalok.txt", $felhasznalok);
+                $_SESSION["user"] = $felhasznalo;
                 header("Location: change-email.php?sikeres=true");
             }
 

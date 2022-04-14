@@ -30,6 +30,7 @@ if (isset($_POST["change-gender-submit-btn"])) {
             if (count($hibak) === 0) {
                 $felhasznalo->setNem($ujNem);
                 adatokMentese("data/felhasznalok.txt", $felhasznalok);
+                $_SESSION["user"] = $felhasznalo;
                 header("Location: change-gender.php?sikeres=true");
             }
 

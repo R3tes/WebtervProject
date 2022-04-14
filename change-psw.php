@@ -51,6 +51,7 @@
                     $uj_jelszo = password_hash($ujJelszo, PASSWORD_DEFAULT);
                     $felhasznalo->setJelszo($uj_jelszo);
                     adatokMentese("data/felhasznalok.txt", $felhasznalok); 
+                    $_SESSION["user"] = $felhasznalo;
                     header("Location: change-psw.php?sikeres=true");
                 }
 

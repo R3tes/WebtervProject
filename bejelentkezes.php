@@ -12,6 +12,17 @@
         $felhasznalonev = $_POST["felhasznalonev"];
         $jelszo = $_POST["password"];
 
+        # 4/14
+        if (isset($_POST["remember-me"])) {
+            setcookie("remember", $felhasznalonev, time() + 2678400); # 31 nap
+        }
+        else {
+            if (isset($_COOKIE["remember"]))  {
+                setcookie("remember", "", time() - 3600);
+            }
+        }
+        # //
+
         foreach ($users as $felhasznalo) {
 
             if ($felhasznalo->getFelhasznalonev() === $felhasznalonev && password_verify($jelszo, $felhasznalo->getJelszo())) {
@@ -20,8 +31,6 @@
             }
 
         }
-
-        #cookie cuccokkal rememberMe?
 
         $sikeresBejelentkezes = false;
     }
@@ -60,14 +69,14 @@
             <img src="assets/img/loginPicture.jpg" alt="login avatar" id="loginavatar">
             <form action="bejelentkezes.php" method="POST" enctype="multipart/form-data">
                 <label for="username">Felhasználónév:</label>
-                <input type="text" id="username" name="felhasznalonev" placeholder="Add meg a felhasználóneved" required>
+                <input type="text" id="username" name="felhasznalonev" <?php if (isset($_COOKIE["remember"])) echo "value='" . $_COOKIE["remember"] . "'" ?> required>
 
                 <label for="jelszo">Jelszó:</label>
-                <input type="password" name="password" id="jelszo" placeholder="Add meg a jelszavad" required>
+                <input type="password" name="password" id="jelszo" required>
 
                 <input type="submit" name="logingomb" value="Bejelentkezés">
 
-                <label class="felhasznaloformCheckbox"><input type="checkbox" name="rememberMe"/> Emlékezz rám</label>
+                <label class="felhasznaloformCheckbox"><input type="checkbox" name="remember-me" <?php if (isset($_COOKIE["remember"])) echo "checked"; ?>> Emlékezz rám</label>
 
             </form>
         </div>

@@ -30,6 +30,7 @@ if (isset($_POST["change-usrname-submit-btn"])) {
             if (count($hibak) === 0) {
                 $felhasznalo->setFelhasznalonev($ujFelhasznalonev);
                 adatokMentese("data/felhasznalok.txt", $felhasznalok);
+                $_SESSION["user"] = $felhasznalo;
                 header("Location: change-usrname.php?sikeres=true");
             }
 
