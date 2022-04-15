@@ -757,21 +757,14 @@ th {
 .storelink {
     margin-right: auto;
     margin-left: auto;
-    width: 25%;
+    width: 100%;
     box-sizing: border-box;
-    background-color: #4b4848;
+    background-color: rgba(152, 152, 152, 0.5);
     color: #fff;
 
     border-radius: 10px;
     display: block;
     text-decoration: none;
-}
-
-.storeImage {
-    display: block;
-    margin-right: auto;
-    margin-left: auto;
-    margin-bottom: 20px;
 }
 
 .kepekegymasMellett {
@@ -781,6 +774,44 @@ th {
 
 .storelink:hover {
     outline: 5px solid rgba(178, 158, 158, 0.5);
+}
+
+.storeTable th, .storeTable td{
+    border: none;
+    border-bottom: 1px solid #c2cedc;
+    padding: 10px 20px;
+    text-align: center;
+    font-weight: unset;
+}
+
+.storeTable {
+    margin: auto auto;
+    border-collapse: collapse;
+}
+
+.nincsRaktaron {
+    color: red;
+    text-decoration: underline;
+    font-style: italic;
+}
+
+.storeTable th {
+    background-color: rgba(255, 140, 0, 0.48);
+    font-weight: bold;
+    color: firebrick;
+    font-size: large;
+}
+
+.storeTable input[type=submit]{
+    background-color: #e59f08;
+    box-shadow: 3px 3px 4px #545454;
+    text-transform: uppercase;
+    border-radius: 10px;
+    font-weight: bold;
+}
+
+.storeTable input[type=submit]:hover{
+    background-color: #ff4400;
 }
 
 /* == KONTAKT == */
@@ -828,6 +859,11 @@ th {
 
 .kapcsolatform input[type=submit]:hover {
     background-color: #e83a1e;
+}
+
+.big-message-container {
+    display: grid;
+    grid-template-columns: 33.33% 33.33% 33.33%;
 }
 
 /* == BEJELENTKEZES ES REGISZTRACIO == */
@@ -987,6 +1023,14 @@ form > div > label {
 
 .kilepes input[type="submit"]:hover {
     background-color: #dc0909;
+}
+
+.backtoprof input[type="submit"] {
+    width: 20%;
+    box-shadow: 4px 4px 5px #000;
+    text-transform: uppercase;
+    border-radius: 20px;
+    font-weight: bold;
 }
 
 .profilkep input[type="submit"]{

@@ -4,9 +4,9 @@ class Termek
 {
     private string $termekNev;
     private int $ar;
-    private array $mennyiseg;
+    private int $mennyiseg;
 
-    public function __construct(string $termekNev, int $ar, array $mennyiseg)
+    public function __construct(string $termekNev, int $ar, int $mennyiseg)
     {
         $this->termekNev = $termekNev;
         $this->ar = $ar;
@@ -33,12 +33,12 @@ class Termek
         $this->ar = $ar;
     }
 
-    public function getMennyiseg(): array
+    public function getMennyiseg(): int
     {
         return $this->mennyiseg;
     }
 
-    public function setMennyiseg(array $mennyiseg): void
+    public function setMennyiseg(int $mennyiseg): void
     {
         $this->mennyiseg = $mennyiseg;
     }

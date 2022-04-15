@@ -6,6 +6,7 @@
 
     $users = adatokBetoltese("data/felhasznalok.txt");
 
+
     $sikeresBejelentkezes = true;
 
     if (isset($_POST["logingomb"])) {
@@ -26,6 +27,10 @@
         foreach ($users as $felhasznalo) {
 
             if ($felhasznalo->getFelhasznalonev() === $felhasznalonev && password_verify($jelszo, $felhasznalo->getJelszo())) {
+                if ($felhasznalo->isBlocked()) {
+                    $sikeresBejelentkezes = false;
+                    break;
+                }
                 $_SESSION["user"] = $felhasznalo;
                 header("Location: profile.php");
             }
@@ -59,7 +64,7 @@
         <?php
         echo "<section>";
             if (!$sikeresBejelentkezes) {
-                echo "<div class='sikertelen'><p>A belépési adatok nem megfelelőek!</p></div>";
+                echo "<div class='sikertelen'><p>A belépési adatok nem megfelelőek, vagy tiltott a felhasználó!</p></div>";
             }
         echo "</section>";
         ?>

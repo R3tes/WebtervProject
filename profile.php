@@ -8,6 +8,8 @@ if (!isset($_SESSION["user"])) {
     header("Location: bejelentkezes.php");
 }
 
+$felhasznalok = adatokBetoltese("data/felhasznalok.txt");
+
 define("DEFAULT_PROFILKEP", "assets/img/profile-pictures/default_profile.jpg");
 $profilkep = DEFAULT_PROFILKEP;
 
@@ -37,6 +39,44 @@ if (isset($_POST["upload-btn"]) && is_uploaded_file($_FILES["profile-picture"]["
 
         header("Location: profile.php");
     }
+}
+
+$sikeresTiltas = true;
+
+if (isset($_POST["block-user-btn"])) {
+
+    $sikeresTiltas = false;
+
+    $tiltandoFelhasznalo = $_POST["user-to-be-blocked"];
+
+    foreach ($felhasznalok as $felhasznalo) {
+        if ($felhasznalo->getFelhasznalonev() === $tiltandoFelhasznalo) {
+            $felhasznalo->setBlocked(true);
+            adatokMentese("data/felhasznalok.txt", $felhasznalok);
+            $sikeresTiltas = true;
+            header("Location: profile.php");
+        }
+    }
+
+}
+
+$sikeresFeloldas = true;
+
+if (isset($_POST["unblock-user-btn"])) {
+
+    $sikeresFeloldas = false;
+
+    $feloldandoFelhasznalo = $_POST["user-to-be-unblocked"];
+
+    foreach ($felhasznalok as $felhasznalo) {
+        if ($felhasznalo->getFelhasznalonev() === $feloldandoFelhasznalo) {
+            $felhasznalo->setBlocked(false);
+            adatokMentese("data/felhasznalok.txt", $felhasznalok);
+            $sikeresFeloldas = true;
+            header("location: profile.php");
+        }
+    }
+
 }
 
 
@@ -79,6 +119,21 @@ $felhasznalo = $_SESSION["user"];
 
         echo "</div>";
     }
+
+    if (!$sikeresTiltas) {
+        echo '<section>';
+        echo '<div class="sikertelen"><p>Sikertelen tiltás, valószínüleg nincs ilyen felhasználó!</p></div>';
+        echo '</section>';
+    }
+
+    if (!$sikeresFeloldas) {
+        echo '<section>';
+        echo '<div class="sikertelen"><p>Nem sikerült feloldani a tiltást, valószínüleg nincs ilyen felhasználó!</p></div>';
+        echo '</section>';
+    }
+
+
+
     ?>
 
     <section>
@@ -89,7 +144,7 @@ $felhasznalo = $_SESSION["user"];
             <img src="<?php echo $profilkep; ?>" alt="Profilkép" height="250" width="250">
 
             <form action="profile.php" method="POST" enctype="multipart/form-data" class="profilkep">
-                <label style="font-weight: bold"> Válassz profilképet (max 500x500):
+                <label style="font-weight: bold"> Válassz profilképet (max. 5 MB):
                     <input type="file" name="profile-picture">
                 </label>
                 <br>
@@ -157,6 +212,12 @@ $felhasznalo = $_SESSION["user"];
             </tr>
         </table>
 
+        <div class="kilepes" style="margin-bottom:30px">
+            <form action="user-message.php" method="POST" enctype="multipart/form-data">
+                <input type="submit" name="forward-to-um" value="Üzeneteim" style="background-color: #66ccff" onmouseover="this.style.backgroundColor='white';" onmouseout="this.style.backgroundColor='#66ccff';">
+            </form>
+        </div>
+
         <div class="kilepes">
             <form action="kijelentkezes.php" method="POST">
                 <input type="submit" name="logout-btn" value="Kijelentkezés">
@@ -188,6 +249,35 @@ $felhasznalo = $_SESSION["user"];
                 $sorszam++;
             }
 
+            echo '<h2 class="kozepre">Felhasználó letiltása</h2>';
+            echo '<p>Regisztrált felhasználók: </p>';
+            echo '<div class="message-container">';
+            echo '<ul>';
+            foreach ($felhasznalok as $felhasznalo) {
+                echo '<li>' . $felhasznalo->getFelhasznalonev() . '</li>';
+            }
+            echo '</ul>';
+            echo '</div>';
+            echo '<div class="felhasznaloform" style="margin-left:10px">';
+            echo '<form action="profile.php" method="POST" enctype="multipart/form-data">';
+
+            echo '<label for="block-user">Letiltandó felhasználó: </label>';
+            echo '<input type="text" name="user-to-be-blocked" id="block-user" required>';
+
+            echo '<input type="submit" name="block-user-btn" value="Letiltás">';
+
+            echo '</form>';
+            echo '</div>';
+            echo '<div class="felhasznaloform" style="margin-left:10px">';
+            echo '<form action="profile.php" method="POST" enctype="multipart/form-data">';
+
+            echo '<label for="block-user">Letiltás feloldása a következő felhasználón: </label>';
+            echo '<input type="text" name="user-to-be-unblocked" id="unblock-user" required>';
+
+            echo '<input type="submit" name="unblock-user-btn" value="Tiltás feloldása">';
+
+            echo '</form>';
+            echo '</div>';
         }
         ?>
 

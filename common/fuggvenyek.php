@@ -55,9 +55,10 @@ function navigacioGeneralasa()
                 "</li>";
         }
 
-        echo "<li" . ($aktualisOldal === "cart" ? " class='active'" : "") . ">" .
-            "<a href='cart.php'><img src='../assets/img/shoppingcart.png' alt='shopping cart'></a>" .
-            "</li>";
+    echo "<li" . ($aktualisOldal === "cart" ? " class='active'" : "") . ">" .
+        "<a href='cart.php'><img src='assets/img/shoppingcart.png' alt='shopping cart'></a>" .
+        "</li>";
+
 }
 
 function adatokMentese(string $fajlnev, array $adatok)
@@ -110,7 +111,9 @@ function profilkepFeltoltese(array &$hibak, string $felhasznalonev)
             $hibak[] = "A profilkép kiterjesztése hibás! Engedélyezett formátumok: " . implode(", ", $engedelyezettKiterjesztesek) . "!";
         }
 
-        if ($_FILES["profile-picture"]["size"] > 5242880) {
+        $MB = 1048576;
+
+        if ($_FILES["profile-picture"]["size"] > 5 * $MB) {
             $hibak[] = "A fájl mérete túl nagy!";
         }
 
@@ -124,6 +127,44 @@ function profilkepFeltoltese(array &$hibak, string $felhasznalonev)
         }
 
     }
+
+}
+
+function modifyUser(string $fajlnev, Felhasznalo $modifiedUser) {
+
+    $felhasznalok = adatokBetoltese($fajlnev);
+
+    foreach ($felhasznalok as $felhasznalo) {
+
+        if ($felhasznalo->getFelhasznalonev() === $modifiedUser->getFelhasznalonev()) {
+            $felhasznalo = $modifiedUser;
+        }
+    }
+
+    adatokMentese($fajlnev, $felhasznalok);
+}
+
+function vegosszeg(array $kosar) {
+    $osszeg = 0;
+
+    foreach ($kosar as $item) {
+        $osszeg += $item->getAr();
+    }
+
+    return $osszeg;
+}
+
+function whatsMyBevetel(array $teljesitettRendelesek) {
+
+    $res = 0;
+
+    foreach ($teljesitettRendelesek as $tRendeles) {
+        foreach ($tRendeles->getOrderedItems() as $item) {
+            $res += $item->getAr();
+        }
+    }
+
+    return $res;
 
 }
 

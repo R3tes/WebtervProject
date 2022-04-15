@@ -13,6 +13,7 @@ class Felhasznalo
     private array $bemutatkozas;
     private array $kosar;
     private bool $admin;
+    private bool $blocked;
 
     public function __construct(string $felhasznalonev, string $jelszo, string $email, string $nem)
     {
@@ -27,6 +28,7 @@ class Felhasznalo
         $this->bemutatkozas = [];
         $this->kosar = [];
         $this->admin = false;
+        $this->blocked = false;
     }
 
     public function getFelhasznalonev(): string
@@ -139,6 +141,33 @@ class Felhasznalo
     {
         return $this->felhasznalonev . ", születési év: " . $this->szuletesiDatum . ", e-mail cím: " .
             $this->email . ", neme: " . $this->nem;
+    }
+
+
+    public function isBlocked(): bool
+    {
+        return $this->blocked;
+    }
+
+
+    public function setBlocked(bool $blocked): void
+    {
+        $this->blocked = $blocked;
+    }
+
+
+    public function kosarbaTesz(CartItem $newItem): void {
+
+        foreach ($this->kosar as $item) {
+
+            if ($item->getNev() === $newItem->getNev()) {
+                $item->setKosarMennyiseg($item->getKosarMennyiseg() + 1);
+                $item->setAr($item->getAr() + $newItem->getAr());
+                return;
+            }
+        }
+
+        $this->kosar[] = $newItem;
     }
 
 }
