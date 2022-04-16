@@ -795,6 +795,12 @@ th {
     font-style: italic;
 }
 
+.adminNemVasarol{
+    color: #ff2f00;
+    font-size: 16px;
+    font-weight: bold;
+}
+
 .storeTable th {
     background-color: rgba(255, 140, 0, 0.48);
     font-weight: bold;
@@ -812,6 +818,161 @@ th {
 
 .storeTable input[type=submit]:hover{
     background-color: #ff4400;
+}
+
+/* == KOSAR == */
+
+.cartTable {
+    margin: auto auto;
+    border-collapse: collapse;
+    font: normal 100px Arial, sans-serif;
+}
+
+.cartTable th, .cartTable td{
+    border: 1px solid #a8b3c0;
+    padding: 10px 20px;
+    text-align: center;
+    font-weight: unset;
+    background-color: rgb(204, 203, 202);
+}
+
+.cartTable td:first-child{
+    font-weight: bold;
+}
+
+.cartTable th {
+    background-color: rgba(255, 140, 0, 0.75);
+    font-weight: bold;
+    color: #ab3200;
+    font-size: large;
+}
+
+.cartTable input[type=submit]{
+    background-color: #b00f0f;
+    box-shadow: 1px 1px 2px #000;
+    text-transform: uppercase;
+    border-radius: 15px;
+    font-weight: bold;
+    color: black;
+}
+
+.cartTable input[type=submit]:hover{
+    background-color: #e80000;
+    color: white;
+}
+
+input[name="orderButton"]{
+    background-color: #6ba115;
+    box-shadow: 1px 1px 2px #000;
+    text-transform: uppercase;
+    border-radius: 15px;
+    font-weight: bold;
+    color: black;
+    width: 70%;
+}
+
+input[name="orderButton"]:hover{
+    background-color: #88de06;
+    color: white;
+}
+
+/* == MODOSITASOK == */
+
+.modositButton input[type="submit"]{
+    box-shadow: 2px 2px 3px #626262;
+    text-transform: uppercase;
+    border-radius: 12px;
+    background-color: #d76819;
+    font-weight: bold;
+}
+
+.modositButton input[type="submit"]:hover{
+    background-color: #d79300;
+    color: white;
+}
+
+.returnButton input[type="submit"]{
+    width: 80%;
+    box-shadow: 2px 2px 3px #626262;
+    text-transform: uppercase;
+    border-radius: 12px;
+    background-color: #1998d7;
+    font-weight: bold;
+}
+
+.returnButton input[type="submit"]:hover{
+    background-color: #02a4f6;
+    color: white;
+}
+
+/* == RENDELESEK == */
+
+.ordersTable-rounded {
+    border: none;
+    margin: auto auto;
+    width: 90%;
+    font: normal 13px Arial, sans-serif;
+}
+
+.ordersTable-rounded thead th {
+    color: #333;
+    padding: 10px;
+    text-align: left;
+    text-shadow: 1px 1px 1px #ccc;
+    background-color: #f59130;
+    border: none;
+}
+
+.ordersTable-rounded tbody td {
+    color: #333;
+    padding: 10px;
+    text-shadow: 1px 1px 1px #fff;
+    border: none;
+    border-top: solid 1px #b69156;
+    background-color: #ffcc8e;
+}
+
+.ordersTable-rounded thead th:first-child {
+    border-radius: 10px 0 0 0;
+}
+
+.ordersTable-rounded thead th:last-child {
+    border-radius: 0 10px 0 0;
+}
+
+.ordersTable-rounded tbody tr:last-child td:first-child {
+    border-radius: 0 0 0 10px;
+}
+.ordersTable-rounded tbody tr:last-child td:last-child {
+    border-radius: 0 0 10px 0;
+}
+
+.complete-order-form input[name="complete-order-btn"]{
+    background-color: #b07d0f;
+    box-shadow: 1px 1px 2px #000;
+    text-transform: uppercase;
+    border-radius: 15px;
+    font-weight: bold;
+    color: black;
+}
+
+.complete-order-form input[name="complete-order-btn"]:hover{
+    background-color: #d5aa00;
+    color: white;
+}
+
+.delete-order-form input[type="submit"]{
+    background-color: #b00f0f;
+    box-shadow: 1px 1px 2px #000;
+    text-transform: uppercase;
+    border-radius: 15px;
+    font-weight: bold;
+    color: black;
+}
+
+.delete-order-form input[type="submit"]:hover{
+    background-color: #e80000;
+    color: white;
 }
 
 /* == KONTAKT == */
@@ -855,7 +1016,6 @@ th {
     border: none;
     cursor: pointer;
 }
-
 
 .kapcsolatform input[type=submit]:hover {
     background-color: #e83a1e;
@@ -1006,10 +1166,12 @@ form > div > label {
     box-shadow: 4px 4px 5px #000;
     text-transform: uppercase;
     border-radius: 20px;
+    font-weight: bold;
 }
 
 .profiladatok input[type="submit"]:hover {
     background-color: #decb5e;
+    color: white;
 }
 
 .kilepes input[type="submit"] {
@@ -1044,6 +1206,51 @@ form > div > label {
 
 .profilkep input[type="submit"]:hover {
     background-color: #decb5e;
+    color: white;
+}
+
+.adminButtons input[name="block-user-btn"]{
+    width: 70%;
+    background-color: #a20000;
+    box-shadow: 2px 2px 4px #000;
+    text-transform: uppercase;
+    border-radius: 15px;
+    font-weight: bold;
+    color: black;
+}
+.adminButtons input[name="block-user-btn"]:hover{
+    background-color: #f80000;
+    color: white;
+}
+
+.adminButtons input[name="unblock-user-btn"]{
+    width: 70%;
+    background-color: #c27e00;
+    box-shadow: 2px 2px 4px #000;
+    text-transform: uppercase;
+    border-radius: 15px;
+    font-weight: bold;
+    color: black;
+}
+
+.adminButtons input[name="unblock-user-btn"]:hover{
+    background-color: #f17900;
+    color: white;
+}
+
+.sendMessageButton input[type="submit"]{
+    width: 90%;
+    background-color: #006fb4;
+    box-shadow: 4px 4px 5px #000;
+    text-transform: uppercase;
+    border-radius: 20px;
+    font-weight: bold;
+    color: black;
+}
+
+.sendMessageButton input[type="submit"]:hover{
+    background-color: #0095ff;
+    color: white;
 }
 
 /* == UTOFORMAZAS == */

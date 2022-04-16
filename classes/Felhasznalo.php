@@ -5,12 +5,7 @@ class Felhasznalo
     private string $felhasznalonev;
     private string $jelszo;
     private string $email;
-    private int $szuletesiDatum;
-    private int $versenyzoAzonosito;
     private string $nem;
-    private bool $hozEkontrollert;
-    private bool $vettEmarResztVersenyen;
-    private array $bemutatkozas;
     private array $kosar;
     private bool $admin;
     private bool $blocked;
@@ -56,26 +51,6 @@ class Felhasznalo
         $this->email = $email;
     }
 
-    public function getSzuletesiDatum(): int
-    {
-        return $this->szuletesiDatum;
-    }
-
-    public function setSzuletesiDatum(int $szuletesiDatum): void
-    {
-        $this->szuletesiDatum = $szuletesiDatum;
-    }
-
-    public function getVersenyzoAzonosito(): int
-    {
-        return $this->versenyzoAzonosito;
-    }
-
-    public function setVersenyzoAzonosito(int $versenyzoAzonosito): void
-    {
-        $this->versenyzoAzonosito = $versenyzoAzonosito;
-    }
-
     public function getNem(): string
     {
         return $this->nem;
@@ -84,37 +59,6 @@ class Felhasznalo
     public function setNem(string $nem): void
     {
         $this->nem = $nem;
-    }
-
-    public function isHozEkontrollert(): bool
-    {
-        return $this->hozEkontrollert;
-    }
-
-    public function setHozEkontrollert(bool $hozEkontrollert): void
-    {
-        $this->hozEkontrollert = $hozEkontrollert;
-    }
-
-    public function isVettEmarResztVersenyen(): bool
-    {
-        return $this->vettEmarResztVersenyen;
-    }
-
-
-    public function setVettEmarResztVersenyen(bool $vettEmarResztVersenyen): void
-    {
-        $this->vettEmarResztVersenyen = $vettEmarResztVersenyen;
-    }
-
-    public function getBemutatkozas(): array
-    {
-        return $this->bemutatkozas;
-    }
-
-    public function setBemutatkozas(array $bemutatkozas): void
-    {
-        $this->bemutatkozas = $bemutatkozas;
     }
 
     public function getKosar(): array

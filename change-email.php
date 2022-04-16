@@ -92,7 +92,7 @@ $felhasznalo = $_SESSION["user"];
         <h2>Email módosítása</h2>
 
             <img src="assets/img/loginPicture.jpg" alt="Avatar" style="height:150px">
-            <form action="change-email.php" method="POST" autocomplete="off">
+            <form action="change-email.php" method="POST" autocomplete="off" class="modositButton">
                 <label for="old-email" class="requiredmezo">Régi e-mail: </label>
                 <input type="text" name="old-email" id="old-email" required>
 
@@ -103,7 +103,7 @@ $felhasznalo = $_SESSION["user"];
             </form>
 
 
-            <form action="profile.php?changeInDetails=true" method="POST">
+            <form action="profile.php?changeInDetails=true" method="POST" class="returnButton">
                 <input type="submit" name="back-to-profile-btn" value="Vissza a profilra">
             </form>
         </div>

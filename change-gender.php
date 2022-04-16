@@ -86,7 +86,7 @@ include_once "common/header.php";
         <h2>Nem módosítása</h2>
 
             <img src="assets/img/loginPicture.jpg" alt="Avatar" style="height:150px">
-            <form action="change-gender.php" method="POST" autocomplete="off">
+            <form action="change-gender.php" method="POST" autocomplete="off" class="modositButton">
 
                 <div>
                     Új nem:
@@ -98,7 +98,7 @@ include_once "common/header.php";
                 <input type="submit" name="change-gender-submit-btn" value="Módosítás">
             </form>
 
-            <form action="profile.php?changeInDetails=true" method="POST">
+            <form action="profile.php?changeInDetails=true" method="POST" class="returnButton">
                 <input type="submit" name="back-to-profile-btn" value="Vissza a profilra">
             </form>
         </div>

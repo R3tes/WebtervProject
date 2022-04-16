@@ -62,7 +62,7 @@ include_once "common/header.php";
             <th>Név</th>
             <th>Raktáron (db)</th>
             <th>Ár (1 db)</th>
-            <?php if (isset($_SESSION["user"])) { ?>
+            <?php if (isset($_SESSION["user"]) && $_SESSION["user"]->getFelhasznalonev() !== "admin") { ?>
                 <th>Kosárba tétel</th>
             <?php } ?>
         </tr>
@@ -84,7 +84,7 @@ include_once "common/header.php";
                 <td>
                     <?php echo $termek->getAr() . " Ft"; ?>
                 </td>
-                <?php if (isset($_SESSION["user"])) { ?>
+                <?php if (isset($_SESSION["user"]) && $_SESSION["user"]->getFelhasznalonev() !== "admin") { ?>
                     <td>
                         <form action="store.php" method="GET">
                             <input type="hidden" name="itemName" value="<?php echo $termek->getTermekNev(); ?>">

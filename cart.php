@@ -79,14 +79,17 @@ include_once "common/header.php";
     ?>
 
     <?php if (count($kosar) > 0) { ?>
-        <table>
-            <tr>
-                <th>Termék neve</th>
-                <th>Kosár mennyiség</th>
-                <th>Ár (összesített)</th>
-                <th>Törlés</th>
-            </tr>
+        <table class="cartTable">
+            <thead>
+                <tr>
+                    <th>Termék neve</th>
+                    <th>Mennyiség (db)</th>
+                    <th>Ár (összesített)</th>
+                    <th>Törlés</th>
+                </tr>
+            </thead>
             <?php foreach ($kosar as $item) { ?>
+            <tbody>
                 <tr>
                     <td><?php echo $item->getNev(); ?></td>
                     <td><?php echo $item->getKosarMennyiseg(); ?></td>
@@ -98,6 +101,7 @@ include_once "common/header.php";
                         </form>
                     </td>
                 </tr>
+            </tbody>
             <?php } ?>
             <tr class="total-sum">
                 <th colspan="4">Végösszeg: <?php echo vegosszeg($kosar) ?> Ft</th>

@@ -88,7 +88,7 @@ $felhasznalo = $_SESSION["user"];
 
             <img src="assets/img/loginPicture.jpg" alt="Avatar" style="height:150px">
 
-            <form action="change-usrname.php" method="POST" autocomplete="off">
+            <form action="change-usrname.php" method="POST" autocomplete="off" class="modositButton">
 
                 <label for="new-username" class="requiredmezo">Új felhasználónév (max. 50 karakter): </label>
                 <input type="text" name="new-username" id="new-username" required>
@@ -96,7 +96,7 @@ $felhasznalo = $_SESSION["user"];
                 <input type="submit" name="change-usrname-submit-btn" value="Módosítás">
             </form>
 
-            <form action="profile.php?changeInDetails=true" method="POST">
+            <form action="profile.php?changeInDetails=true" method="POST" class="returnButton">
                 <input type="submit" name="back-to-profile-btn" value="Vissza a profilra">
             </form>
         </div>

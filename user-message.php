@@ -96,7 +96,7 @@ $felhasznalo = $_SESSION["user"];
     <section>
 
         <h2>Üzenet küldése</h2>
-        <div class="felhasznaloform" style="margin-left:10px">
+        <div class="felhasznaloform sendMessageButton" style="margin-left:10px">
             <form action="user-message.php" method="POST" enctype="multipart/form-data">
 
                 <label for="user" class="requiredmezo">Címzett</label>
@@ -116,7 +116,7 @@ $felhasznalo = $_SESSION["user"];
         <?php
         foreach ($uzenetek as $msg) {
             if ($msg->getFogado() === $_SESSION["user"]->getFelhasznalonev()) {
-                echo '<div class="message-container" style="margin: 0 20px 10px 0;width: 90%">';
+                echo '<div class="message-container sendMessageButton" style="margin: 0 20px 10px 0;width: 90%">';
                 echo '<ul>';
                 echo '<li>Küldő: ' . $msg->getKuldo() . ' </li>';
                 echo '<li>Időpont: ' .  $msg->getUzenetDatuma()->format("Y-m-d H:i:s") . ' </li>';

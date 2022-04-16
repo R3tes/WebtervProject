@@ -105,7 +105,7 @@
         <div class="change-data-container">
             <h2>Jelszó módosítása</h2>
             <img src="assets/img/loginPicture.jpg" alt="Avatar" style="height:150px">
-            <form action="change-psw.php" method="POST" autocomplete="off">
+            <form action="change-psw.php" method="POST" autocomplete="off" class="modositButton">
                 <label for="old-psw" class="requiredmezo">Régi jelszó: </label>
                 <input type="password" name="old-psw" id="old-psw" required>
 
@@ -118,7 +118,7 @@
                 <input type="submit" name="change-psw-submit-btn" value="Módosítás">
             </form>
 
-            <form action="profile.php?changeInDetails=true" method="POST">
+            <form action="profile.php?changeInDetails=true" method="POST" class="returnButton">
                 <input type="submit" name="back-to-profile-btn" value="Vissza a profilra">
             </form>
         </div>

@@ -258,17 +258,17 @@ $felhasznalo = $_SESSION["user"];
             }
             echo '</ul>';
             echo '</div>';
-            echo '<div class="felhasznaloform" style="margin-left:10px">';
+            echo '<div class="felhasznaloform adminButtons" style="margin-left:10px">';
             echo '<form action="profile.php" method="POST" enctype="multipart/form-data">';
 
             echo '<label for="block-user">Letiltandó felhasználó: </label>';
-            echo '<input type="text" name="user-to-be-blocked" id="block-user" required>';
+            echo '<input type="text" name="user-to-be-blocked" id="block-user" required >';
 
             echo '<input type="submit" name="block-user-btn" value="Letiltás">';
 
             echo '</form>';
             echo '</div>';
-            echo '<div class="felhasznaloform" style="margin-left:10px">';
+            echo '<div class="felhasznaloform adminButtons" style="margin-left:10px">';
             echo '<form action="profile.php" method="POST" enctype="multipart/form-data">';
 
             echo '<label for="block-user">Letiltás feloldása a következő felhasználón: </label>';

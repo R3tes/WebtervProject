@@ -83,39 +83,41 @@ include_once "common/header.php";
     <?php if (count($rendelesek) > 0) { ?>
         <?php if (count($nemTeljesitettRendelesek) > 0) { ?>
             <h2 class="kozepre">Aktív (nem teljesített) rendelések</h2>
-            <table>
-                <tr>
-                    <th>Rendelést feladó felhasználó</th>
-                    <th>Rendelés dátuma</th>
-                    <th>Rendelés tartalma</th>
-                    <th></th>
-                    <th></th>
-                </tr>
-                <?php foreach ($nemTeljesitettRendelesek as $rendeles) { ?>
+            <table class="ordersTable-rounded">
+                <thead>
                     <tr>
-                        <td><?php echo $rendeles->getCustomer(); ?></td>
-                        <td><?php echo $rendeles->getOrderDate()->format("Y-m-d H:i:s"); ?></td>
-                        <td><?php echo implode("<br>", $rendeles->getOrderedItems()); ?></td>
-                        <td>
-                            <form action="orders.php" method="GET" class="complete-order-form">
-                                <input type="hidden" name="orderer"
-                                       value="<?php echo $rendeles->getCustomer(); ?>">
-                                <input type="hidden" name="order-date"
-                                       value="<?php echo $rendeles->getOrderDate()->format('Y-m-d H:i:s'); ?>">
-                                <input type="submit" name="complete-order-btn" value="Kiszállítás">
-                            </form>
-                        </td>
-                        <td>
-                            <form action="orders.php" method="GET" class="delete-order-form">
-                                <input type="hidden" name="orderer" value="<?php echo $rendeles->getCustomer(); ?>">
-                                <input type="hidden" name="order-date"
-                                       value="<?php echo $rendeles->getOrderDate()->format('Y-m-d H:i:s'); ?>">
-                                <input type="submit" name="delete-order-btn" value="Törlés"
-                                       style="background-color:tomato" onmouseover="this.style.backgroundColor='black';"
-                                       onmouseout="this.style.backgroundColor='tomato';">
-                            </form>
-                        </td>
+                        <th>Rendelést feladó felhasználó</th>
+                        <th>Rendelés dátuma</th>
+                        <th>Rendelés tartalma</th>
+                        <th></th>
+                        <th></th>
                     </tr>
+                </thead>
+                <?php foreach ($nemTeljesitettRendelesek as $rendeles) { ?>
+                    <tbody>
+                        <tr>
+                            <td><?php echo $rendeles->getCustomer(); ?></td>
+                            <td><?php echo $rendeles->getOrderDate()->format("Y-m-d H:i:s"); ?></td>
+                            <td><?php echo implode("<br>", $rendeles->getOrderedItems()); ?></td>
+                            <td>
+                                <form action="orders.php" method="GET"class="complete-order-form">
+                                    <input type="hidden" name="orderer"
+                                           value="<?php echo $rendeles->getCustomer(); ?>">
+                                    <input type="hidden" name="order-date"
+                                           value="<?php echo $rendeles->getOrderDate()->format('Y-m-d H:i:s'); ?>">
+                                    <input type="submit" name="complete-order-btn" value="Kiszállítás">
+                                </form>
+                            </td>
+                            <td>
+                                <form action="orders.php" method="GET" class="delete-order-form">
+                                    <input type="hidden" name="orderer" value="<?php echo $rendeles->getCustomer(); ?>">
+                                    <input type="hidden" name="order-date"
+                                           value="<?php echo $rendeles->getOrderDate()->format('Y-m-d H:i:s'); ?>">
+                                    <input type="submit" name="delete-order-btn" value="Törlés">
+                                </form>
+                            </td>
+                        </tr>
+                    </tbody>
                 <?php } ?>
             </table>
         <?php } else { ?>
@@ -123,21 +125,26 @@ include_once "common/header.php";
         <?php } ?>
 
         <?php if (count($teljesitettRendelesek) > 0) { ?>
+            <hr class="invisiblepagebreak">
             <hr>
             <h2 class="kozepre">Kiszállított rendelések</h2>
-            <table>
-                <tr>
-                    <th>Rendelést feladó felhasználó</th>
-                    <th>Rendelés dátuma</th>
-                    <th>Rendelés tartalma</th>
-
-                </tr>
-                <?php foreach ($teljesitettRendelesek as $rendeles) { ?>
+            <table class="ordersTable-rounded">
+                <thead>
                     <tr>
-                        <td><?php echo $rendeles->getCustomer(); ?></td>
-                        <td><?php echo $rendeles->getOrderDate()->format("Y-m-d H:i:s"); ?></td>
-                        <td><?php echo implode("<br>", $rendeles->getOrderedItems()); ?></td>
+                        <th>Rendelést feladó felhasználó</th>
+                        <th>Rendelés dátuma</th>
+                        <th>Rendelés tartalma</th>
+
                     </tr>
+                </thead>
+                <?php foreach ($teljesitettRendelesek as $rendeles) { ?>
+                    <tbody>
+                        <tr>
+                            <td><?php echo $rendeles->getCustomer(); ?></td>
+                            <td><?php echo $rendeles->getOrderDate()->format("Y-m-d H:i:s"); ?></td>
+                            <td><?php echo implode("<br>", $rendeles->getOrderedItems()); ?></td>
+                        </tr>
+                    </tbody>
                 <?php } ?>
             </table>
         <?php } ?>
