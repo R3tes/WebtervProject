@@ -92,9 +92,7 @@ include_once "common/header.php";
             feleslegesnek érződnek Aloy erőfeszítései, bár ez utóbbit akár tudatos döntésnek is felfoghatjuk az írók
             részéről.</p>
 
-        <iframe class="criticsVideo" src="https://www.youtube.com/embed/4c-yVKKU-Ic" title="YouTube video player"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen>
+        <iframe class="criticsVideo" src="https://www.youtube.com/embed/4c-yVKKU-Ic" title="YouTube video player" allowfullscreen>
         </iframe>
 
 

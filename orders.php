@@ -100,7 +100,7 @@ include_once "common/header.php";
                             <td><?php echo $rendeles->getOrderDate()->format("Y-m-d H:i:s"); ?></td>
                             <td><?php echo implode("<br>", $rendeles->getOrderedItems()); ?></td>
                             <td>
-                                <form action="orders.php" method="GET"class="complete-order-form">
+                                <form action="orders.php" method="GET" class="complete-order-form">
                                     <input type="hidden" name="orderer"
                                            value="<?php echo $rendeles->getCustomer(); ?>">
                                     <input type="hidden" name="order-date"

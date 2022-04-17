@@ -69,11 +69,11 @@
             echo '</section>';
         }
 
-        echo "<section>";
             if (!$sikeresBejelentkezes) {
+                echo "<section>";
                 echo "<div class='sikertelen'><p>A belépési adatok nem megfelelőek, vagy tiltott a felhasználó!</p></div>";
+                echo "</section>";
             }
-        echo "</section>";
         ?>
 
         <h2 class="kozepre">Bejelentkezés</h2>

@@ -45,11 +45,11 @@ include_once "common/header.php";
 <!-- FŐ TARTALOM -->
 <main>
     <?php
-    echo "<section>";
     if (isset($_GET["siker"])) {
+        echo "<section>";
         echo "<div class='sikeres'><p>A termék sikeresen a kosárba helyeződött!</p></div>";
+        echo "</section>";
     }
-    echo "</section>";
     ?>
 
     <section>

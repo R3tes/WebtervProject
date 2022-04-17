@@ -105,9 +105,7 @@ session_start();
             ügyeskedhetünk a D-pad olykor több gombot is hadba szólító, ujjsajdító megmérettetéseihez… a GTA például
             különösen embert próbáló kihívásnak tetszett a régi kontrollert használva.</p>
 
-        <iframe class="criticsVideo" src="https://www.youtube.com/embed/PWc8dXChWTw" title="YouTube video player"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen>
+        <iframe class="criticsVideo" src="https://www.youtube.com/embed/PWc8dXChWTw" title="YouTube video player" allowfullscreen>
         </iframe>
 
 

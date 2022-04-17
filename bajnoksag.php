@@ -126,7 +126,9 @@ if (isset($_POST["jelentkezes"])) {
 
                     <?php
                     $randszam = rand(1,999);
-                    echo'<label for="verId">Versenyző azonosító: <input type="number" id="verID" name="versenyzoId" value='. $randszam .' readonly></label>';
+                    echo'<label for="verID">Versenyző azonosító: 
+                    <input type="number" id="verID" name="versenyzoId" value='. $randszam .' readonly>
+                    </label>';
                     ?>
 
                 </fieldset>
@@ -145,12 +147,13 @@ if (isset($_POST["jelentkezes"])) {
                         Hozok saját kontrollert
                     </label>
 
-                    <label for="exp">Vettem már részt előleg hasonló versenyeken:</label>
-                    <select id="exp" name="versenyzoXP">
-                        <option hidden selected value="nincs megadva"></option>
-                        <option value="yes">Igen</option>
-                        <option value="no">Nem</option>
-                    </select>
+                    <label for="exp">Vettem már részt előleg hasonló versenyeken:
+                        <select id="exp" name="versenyzoXP">
+                            <option hidden selected value="nincs megadva">-Válassz értéket-</option>
+                            <option value="yes">Igen</option>
+                            <option value="no">Nem</option>
+                        </select>
+                    </label>
 
                     <br>
 

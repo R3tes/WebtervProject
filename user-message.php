@@ -114,6 +114,7 @@ $felhasznalo = $_SESSION["user"];
 
         <div class="big-message-container">
         <?php
+        $i=0;
         foreach ($uzenetek as $msg) {
             if ($msg->getFogado() === $_SESSION["user"]->getFelhasznalonev()) {
                 echo '<div class="message-container sendMessageButton" style="margin: 0 20px 10px 0;width: 90%">';
@@ -125,12 +126,14 @@ $felhasznalo = $_SESSION["user"];
                 echo '<form action="user-message.php" method="POST" enctype="multipart/form-data">';
                 echo '<input type="hidden" name="my-reply-recipient" value="' . $msg->getKuldo() . '">';
                 echo '<input type="hidden" name="my-reply-date" value="' . $msg->getUzenetDatuma()->format("Y-m-d H:i:s") . '">';
-                echo '<label for="reply-message" class="requiredmezo">Válasz, max. 2000 karakter</label>';
-                echo '<textarea id="reply-message" name="my-reply" maxlength="2000" placeholder="A fű zöld..." style="resize:none" required></textarea>';
+                echo '<label for="'.$i.'" class="requiredmezo">Válasz, max. 2000 karakter';
+                echo '<textarea id="'.$i.'" name="my-reply" maxlength="2000" placeholder="A fű zöld..." style="resize:none" required></textarea>';
+                echo '</label>';
                 echo '<input type="submit" name="send-reply-btn" value="Válasz küldése">';
                 echo '</form>';
                 echo '</div>';
             }
+            $i++;
         }
         ?>
         </div>
