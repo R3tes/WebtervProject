@@ -124,7 +124,7 @@ $felhasznalo = $_SESSION["user"];
                 echo '</ul>';
                 echo '<form action="user-message.php" method="POST" enctype="multipart/form-data">';
                 echo '<input type="hidden" name="my-reply-recipient" value="' . $msg->getKuldo() . '">';
-                echo '<input type="hidden" name="my-reply-date" value="' . $msg->getUzenetDatuma()->format("Y-m-md H:i:s") . '">';
+                echo '<input type="hidden" name="my-reply-date" value="' . $msg->getUzenetDatuma()->format("Y-m-d H:i:s") . '">';
                 echo '<label for="reply-message" class="requiredmezo">Válasz, max. 2000 karakter</label>';
                 echo '<textarea id="reply-message" name="my-reply" maxlength="2000" placeholder="A fű zöld..." style="resize:none" required></textarea>';
                 echo '<input type="submit" name="send-reply-btn" value="Válasz küldése">';

@@ -9,14 +9,14 @@ class Versenyzo
     private string $nem;
     private bool $hozEkontrollert;
     private bool $vettEmarResztVersenyen;
-    private array $bemutatkozas;
+    private string $bemutatkozas;
 
-    public function __construct(string $nev, int $szuletesiDatum, string $email, int $versenyzoAzonosito, string $nem,
-                                bool $hozEkontrollert, bool $vettEmarResztVersenyen, array $bemutatkozas)
+    public function __construct(string $nev, DateTime $szuletesiDatum, string $email, int $versenyzoAzonosito, string $nem,
+                                bool $hozEkontrollert, bool $vettEmarResztVersenyen, string $bemutatkozas)
     {
         $this->nev = $nev;
 
-        $this->szuletesiDatum = new DateTime();
+        $this->szuletesiDatum = $szuletesiDatum;
 
         $this->email = $email;
         $this->versenyzoAzonosito = $versenyzoAzonosito;
@@ -97,12 +97,12 @@ class Versenyzo
         $this->vettEmarResztVersenyen = $vettEmarResztVersenyen;
     }
 
-    public function getBemutatkozas(): array
+    public function getBemutatkozas(): string
     {
         return $this->bemutatkozas;
     }
 
-    public function setBemutatkozas(array $bemutatkozas): void
+    public function setBemutatkozas(string $bemutatkozas): void
     {
         $this->bemutatkozas = $bemutatkozas;
     }

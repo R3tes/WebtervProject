@@ -9,7 +9,7 @@ $hibak = [];
 
 if (isset($_POST["jelentkezes"])) {
     $teljesNev = $_POST["versenyzoNeve"];
-    $szulDatum = $_POST["versenyzoSzulDatum"];
+    $szulDatum = new Datetime(date("Y-m-d H:i:s", strtotime($_POST["versenyzoSzulDatum"])), new DateTimeZone('Europe/Budapest'));
     $email = $_POST["versenyzoEmail"];
     $azonosito = $_POST["versenyzoId"];
     $nem = $_POST["versenyzoNem"];
@@ -17,7 +17,7 @@ if (isset($_POST["jelentkezes"])) {
     $tapasztalat = $_POST["versenyzoXP"];
     $bemutatkozas = $_POST["versenyzoBemutatkozas"];
 
-    if (trim($teljesNev) === "" || trim($szulDatum) === "" || trim($email) === "") {
+    if (trim($teljesNev) === "" || trim($email) === "" || trim($azonosito) === "") {
         $hibak[] = "Nem töltött ki minden szükséges mezőt mezőt!";
     }
 
@@ -56,6 +56,9 @@ if (isset($_POST["jelentkezes"])) {
 
     <section id="bajnoksagSzovegsection">
         <h2>Hosszú fennállásunk alkalmából Smash Bros. bajnokságot rendezünk!</h2>
+        <?php
+            print_r($versenyzok);
+        ?>
 
         <img src="assets/img/smashBrosBajnoksag.jpg" alt="bajnoksag" class="bajnoksag-img anim-zoomin">
 
@@ -85,7 +88,7 @@ if (isset($_POST["jelentkezes"])) {
     <?php
 
     if(isset($_GET["sikeresUzi"])) {
-        echo "<div><p>A jelentkezés a versenyre sikeresen megtörtént! Várunk a hejszínen.</p></div>";
+        echo "<div><p>A jelentkezés a versenyre sikeresen megtörtént! Várunk a helyszínen.</p></div>";
     }
 
     if (count($hibak) > 0) {
@@ -113,7 +116,7 @@ if (isset($_POST["jelentkezes"])) {
                     <input type="email" name="versenyzoEmail" id="email">
 
                     <label>Versenyző azonosító: </label>
-                        <input type="number" name="versenyzoId" value="555" disabled>
+                        <input type="number" name="versenyzoId" value="555" required>
 
                 </fieldset>
 
