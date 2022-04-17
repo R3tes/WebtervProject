@@ -11,13 +11,11 @@ class Versenyzo
     private bool $vettEmarResztVersenyen;
     private string $bemutatkozas;
 
-    public function __construct(string $nev, DateTime $szuletesiDatum, string $email, int $versenyzoAzonosito, string $nem,
-                                bool $hozEkontrollert, bool $vettEmarResztVersenyen, string $bemutatkozas)
+    public function __construct(string $nev, DateTime $szuletesiDatum, string $email, int $versenyzoAzonosito, string $nem="egyéb",
+                                bool $hozEkontrollert=false, bool $vettEmarResztVersenyen=false, string $bemutatkozas="")
     {
         $this->nev = $nev;
-
         $this->szuletesiDatum = $szuletesiDatum;
-
         $this->email = $email;
         $this->versenyzoAzonosito = $versenyzoAzonosito;
         $this->nem = $nem;
@@ -105,6 +103,11 @@ class Versenyzo
     public function setBemutatkozas(string $bemutatkozas): void
     {
         $this->bemutatkozas = $bemutatkozas;
+    }
+
+    public function __toString(): string
+    {
+        return 'valami';
     }
 
 }

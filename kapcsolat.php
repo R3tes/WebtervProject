@@ -65,7 +65,7 @@
             <?php
 
                 if(isset($_GET["sikeresUzi"])) {
-                    echo "<div><p>Az üzenetét sikeresen megkaptuk, minél hamarabb válaszolunk rá!</p></div>";
+                    echo "<div class='sikeres'><p>Az üzenetét sikeresen megkaptuk, minél hamarabb válaszolunk rá!</p></div>";
                 }
 
                 if (count($hibak) > 0) {

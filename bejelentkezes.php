@@ -62,6 +62,13 @@
 <main>
     <section>
         <?php
+
+        if(isset($_GET["sikeresMuvelet"])) {
+            echo '<section>';
+            echo "<div class='sikeres'><p>Sikeres regisztráció!</p></div>";
+            echo '</section>';
+        }
+
         echo "<section>";
             if (!$sikeresBejelentkezes) {
                 echo "<div class='sikertelen'><p>A belépési adatok nem megfelelőek, vagy tiltott a felhasználó!</p></div>";

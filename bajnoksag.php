@@ -12,12 +12,23 @@ if (isset($_POST["jelentkezes"])) {
     $szulDatum = new Datetime(date("Y-m-d H:i:s", strtotime($_POST["versenyzoSzulDatum"])), new DateTimeZone('Europe/Budapest'));
     $email = $_POST["versenyzoEmail"];
     $azonosito = $_POST["versenyzoId"];
-    $nem = $_POST["versenyzoNem"];
-    $kontroller = $_POST["versenyzoHozKontroller"];
-    $tapasztalat = $_POST["versenyzoXP"];
+    $nem = "egyéb";
+    $kontroller = false;
+    $tapasztalat = false;
+    $bemutatkozas = "nincs";
+
+    if (isset($_POST["versenyzoNem"]) )
+    { $nem = $_POST["versenyzoNem"]; }
+
+    if (isset($_POST["versenyzoHozKontroller"]) )
+    { $kontroller = $_POST["versenyzoHozKontroller"]; }
+
+    if (isset($_POST["versenyzoXP"]) )
+    { $tapasztalat = $_POST["versenyzoXP"]; }
+
     $bemutatkozas = $_POST["versenyzoBemutatkozas"];
 
-    if (trim($teljesNev) === "" || trim($email) === "" || trim($azonosito) === "") {
+    if (trim($teljesNev) === "" || trim($email) === "") {
         $hibak[] = "Nem töltött ki minden szükséges mezőt mezőt!";
     }
 
@@ -28,6 +39,7 @@ if (isset($_POST["jelentkezes"])) {
     if (count($hibak) === 0) {
         $ujversenyzo = new Versenyzo($teljesNev, $szulDatum, $email, $azonosito, $nem, $kontroller, $tapasztalat, $bemutatkozas);
         $versenyzok[] = $ujversenyzo;
+        $_SESSION["versenyzo"] = true;
         adatokMentese("data/versenyzok.txt", $versenyzok);
         header("Location: bajnoksag.php?sikeresUzi=true");
     }
@@ -56,9 +68,6 @@ if (isset($_POST["jelentkezes"])) {
 
     <section id="bajnoksagSzovegsection">
         <h2>Hosszú fennállásunk alkalmából Smash Bros. bajnokságot rendezünk!</h2>
-        <?php
-            print_r($versenyzok);
-        ?>
 
         <img src="assets/img/smashBrosBajnoksag.jpg" alt="bajnoksag" class="bajnoksag-img anim-zoomin">
 
@@ -81,18 +90,16 @@ if (isset($_POST["jelentkezes"])) {
                 valamint minden jelentkező között ajándék utalványokat osztunk ki.
             </p>
         </div>
-
-        <h2>Amennyiben részt szeretnél venni a bajnokságban töltsd ki az alábbi jelentkező lapot!</h2>
     </section>
 
     <?php
 
     if(isset($_GET["sikeresUzi"])) {
-        echo "<div><p>A jelentkezés a versenyre sikeresen megtörtént! Várunk a helyszínen.</p></div>";
+        echo "<div class='sikeres'><p>A jelentkezés a versenyre sikeresen megtörtént! Várunk a helyszínen.</p></div>";
     }
 
     if (count($hibak) > 0) {
-        echo "<div>";
+        echo "<div class='sikertelen'>";
         foreach ($hibak as $hiba) {
             echo "<p>" . $hiba . "</p>";
         }
@@ -101,7 +108,9 @@ if (isset($_POST["jelentkezes"])) {
 
     ?>
 
+    <?php if (!isset($_SESSION["versenyzo"])) { ?>
     <section id="bajnoksagsection">
+        <h2>Amennyiben részt szeretnél venni a bajnokságban töltsd ki az alábbi jelentkező lapot!</h2>
         <div class="bajnoksagform">
             <form action="bajnoksag.php" method="POST">
                 <fieldset>
@@ -115,8 +124,10 @@ if (isset($_POST["jelentkezes"])) {
                     <label for="email" class="requiredmezo">E-mail cím: </label>
                     <input type="email" name="versenyzoEmail" id="email">
 
-                    <label>Versenyző azonosító: </label>
-                        <input type="number" name="versenyzoId" value="555" required>
+                    <?php
+                    $randszam = rand(1,999);
+                    echo'<label for="verId">Versenyző azonosító: <input type="number" id="verID" name="versenyzoId" value='. $randszam .' readonly></label>';
+                    ?>
 
                 </fieldset>
 
@@ -136,7 +147,7 @@ if (isset($_POST["jelentkezes"])) {
 
                     <label for="exp">Vettem már részt előleg hasonló versenyeken:</label>
                     <select id="exp" name="versenyzoXP">
-                        <option disabled selected value>-Válassz-</option>
+                        <option hidden selected value="nincs megadva"></option>
                         <option value="yes">Igen</option>
                         <option value="no">Nem</option>
                     </select>
@@ -154,6 +165,11 @@ if (isset($_POST["jelentkezes"])) {
             </form>
         </div>
     </section>
+    <?php } else { ?>
+    <section class="bajnoksagsection">
+        <h2 class="kozepre" style="color: red">Már jelentkezett a versenyre!</h2>
+    </section>
+    <?php } ?>
     <hr class="invisiblepagebreak">
 
 </main>

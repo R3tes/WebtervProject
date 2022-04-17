@@ -73,7 +73,7 @@ if (isset($_POST["regisztraciogomb"])) {
         $felhasznalo = new Felhasznalo($felhasznalonev, $jelszo, $email, $nem);
         $users[] = $felhasznalo;
         adatokMentese("data/felhasznalok.txt", $users);
-        header("Location: regisztracio.php?sikeresMuvelet=true");
+        header("Location: bejelentkezes.php?sikeresMuvelet=true");
     }
 
 }
@@ -98,11 +98,6 @@ if (isset($_POST["regisztraciogomb"])) {
 <main>
 
     <?php
-    if(isset($_GET["sikeresMuvelet"])) {
-        echo '<section>';
-        echo "<div class='sikeres'><p>Sikeres regisztráció!</p></div>";
-        echo '</section>';
-    }
 
     if (count($hibak) > 0) {
         echo '<section>';

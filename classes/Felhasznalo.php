@@ -15,12 +15,7 @@ class Felhasznalo
         $this->felhasznalonev = $felhasznalonev;
         $this->jelszo = $jelszo;
         $this->email = $email;
-        $this->szuletesiDatum = 0;
-        $this->versenyzoAzonosito = -1;
         $this->nem = $nem;
-        $this->hozEkontrollert = false;
-        $this->vettEmarResztVersenyen = false;
-        $this->bemutatkozas = [];
         $this->kosar = [];
         $this->admin = false;
         $this->blocked = false;
